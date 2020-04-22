@@ -63,3 +63,10 @@ class Report(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+def create_profile(sender, instance, **kwargs):
+    Profile.objects.get_or_create(
+        user=instance,
+    )
+models.signals.post_save.connect(create_profile, sender=User)

@@ -32,9 +32,6 @@ def signup(request):
             user = authenticate(username=u.username, password=raw_password)
             login(request, user)
             messages.success(request, _('Welcome to Lingo Cafe!'))
-            Profile.objects.get_or_create(
-                user=user,
-            )
             return redirect('index')
     else:
         form = SignUpForm()
