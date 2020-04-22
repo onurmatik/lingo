@@ -1,44 +1,66 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags i18n %}
+
+{# dummy trans string to override the misspelled django version #}
+{% blocktrans %}Please enter a correct {{ username }} and password. Note that both fields may be case-sensitive.{% endblocktrans %}
+
 
 {% block content %}
 
-	<div class="container text-center">
+	<div class="container">
 
-        {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-        {% endif %}
+        <h4 class="text-center my-4">
+            {% trans "Please login" %}
+        </h4>
 
-        {% if next %}
-            {% if user.is_authenticated %}
-            <p>Your account doesn't have access to this page. To proceed,
-            please login with an account that has access.</p>
-            {% else %}
-            <p>Please login to see this page.</p>
-            {% endif %}
-        {% endif %}
+        <div class="row">
 
-        <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-        </table>
+            <div class="offset-md-2 col-md-8 offset-lg-3 col-lg-6">
 
-        <input type="submit" value="login">
-        <input type="hidden" name="next" value="{{ next }}">
-        </form>
+                <form method="post" action="{% url 'login' %}">
 
-        {# Assumes you setup the password_reset view in your URLconf #}
-        <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+                    {% csrf_token %}
 
-        <p><a href="{% url 'signup' %}">Don't have an account?</a></p>
+                    <input type="hidden" name="next" value="{{ next }}">
+
+                    <table align="center" width="100%">
+                        <tr>
+                            <td>
+
+                                {{ form|crispy }}
+
+                                <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
+
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </form>
+
+
+                {#<p><a href="{% url 'password_reset' %}">Lost password?</a></p>#}
+
+
+                <p class="my-2 text-center">
+                    &nbsp;
+                </p>
+
+                <h5 class="mt-4 mb-2 text-center">
+                    {% trans "Don't have an account?" %}
+                </h5>
+
+                <div class="text-center">
+                    <a href="{% url 'signup' %}" class="btn btn-outline-primary btn-lg text-center">
+                        {% trans "Sign up" %}
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
+
 
 {% endblock %}

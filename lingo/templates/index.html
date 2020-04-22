@@ -78,15 +78,11 @@
 		{% endfor %}
 
 
+		{% if not user.is_anonymous %}
+
 		<h4 class="mt-4">{% trans "Recommended" %}</h4>
 
 			<p class="mt-2">
-
-			{% if user.is_anonymous %}
-
-				{% trans "Sign in / Sign up" %}
-
-			{% else %}
 
 				{% for meeting in meetings_suggested %}
 
@@ -102,9 +98,9 @@
 
 				{% endfor %}
 
-			{% endif %}
-
 			</p>
+
+		{% endif %}
 
 
 		<h4 class="mt-4">{% trans "Suggest" %}</h4>
