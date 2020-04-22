@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+
+{% block content %}
+
+	<div class="container text-center">
+
+		{% if meetings_user %}
+
+			{% with meetings_user.0 as meeting %}
+
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="alert alert-success mb-3 show" role="alert">
+						<strong>
+							{% if meeting.time < now %}
+								{% trans "Your meeting is live now!" %}
+							{% else %}
+								{% trans "Your next meeting:" %}
+							{% endif %}
+							<br>
+							<a href="{{ meeting.get_absolute_url }}">
+								{{ meeting }} @ {{ meeting.time }}
+							</a>
+						</strong>
+					</div>
+				</div>
+			</div>
+
+			{% endwith %}
+
+
+			<h4 class="mt-4">{% trans "Your meetings" %}</h4>
+
+			<p class="mt-2">
+
+				{% for meeting in meetings_user %}
+					<a href="{{ meeting.get_absolute_url }}">
+						{{ meeting }} @ {{ meeting.time }}
+					</a>
+				{% endfor %}
+
+			</p>
+
+		{% endif %}
+
+
+		{% if meeting_now %}
+
+			<h4 class="mt-4">{% trans "Now" %}</h4>
+
+			<p class="mt-2">
+
+
+				<a href="{{ meeting_now.get_absolute_url }}">
+					{{ meeting_now }} @ {{ meeting_now.time }}
+				</a>
+
+			</p>
+
+		{% endif %}
+
+		<h4 class="mt-4">{% trans "Upcoming" %}</h4>
+
+		{% for meeting in meetings_soon %}
+
+			<p class="mt-2">
+				<a href="{{ meeting.get_absolute_url }}">
+					{{ meeting }} @ {{ meeting.time }}
+				</a>
+			</p>
+
+		{% empty %}
+
+			{% trans "There are no scheduled meetings." %}
+
+		{% endfor %}
+
+
+		<h4 class="mt-4">{% trans "Recommended" %}</h4>
+
+			<p class="mt-2">
+
+			{% if user.is_anonymous %}
+
+				{% trans "Sign in / Sign up" %}
+
+			{% else %}
+
+				{% for meeting in meetings_suggested %}
+
+					<p class="mt-2">
+						<a href="{{ meeting.get_absolute_url }}">
+							{{ meeting }} @ {{ meeting.time }}
+						</a>
+					</p>
+
+				{% empty %}
+
+					{% trans "There are no scheduled meetings for your profile languages." %}
+
+				{% endfor %}
+
+			{% endif %}
+
+			</p>
+
+
+		<h4 class="mt-4">{% trans "Suggest" %}</h4>
+
+			<p class="mt-2">
+				{% trans "Want to practice or tutor a language?" %}
+
+				<a href="{% url 'meeting_request' %}" class="d-block mt-2">
+					{% trans "Suggest a meeting" %}
+				</a>
+			</p>
+
+
+		<h4 class="mt-4">{% trans "About" %}</h4>
+
+			<p class="mt-2">
+
+				{% trans "Lingo Cafe is where expats and immigrant meet locals to practice language and socialize." %}
+
+				<div class="mt-2">
+					<a href="https://twitter.com/messages/compose?recipient_id=1245017306046124036&ref_src=twsrc%5Etfw" class="twitter-dm-button" data-screen-name="lingo_cafe" data-show-count="false">
+						{% trans "Message @lingo_cafe" %}
+					</a>
+					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</div>
+
+			</p>
+
+	</div>
+
+
+{% endblock %}
+
+
+{% block js %}
+
+<script>
+
+	$(function() {
+
+		$('.rsvp_cancel').on('click', function(e) {
+
+			e.preventDefault();
+
+			if (confirm('{% trans "Are you sure you want to cancel your participation?" %}')) {
+
+				window.location = $(this).data('url');
+
+			};
+
+		});
+
+	});
+
+</script>
+
+{% endblock %}

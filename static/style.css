@@ -1,0 +1,11 @@
+body {
+    background-color: #ffe100
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+}
+
+p, h1, h2, h3, h4 {
+    font-family: 'Open Sans', sans-serif;
+}

@@ -1,0 +1,11 @@
+.*
+!.gitignore
+*.sqlite3
+*.pyc
+/env*
+/media/
+/docs/
+/data/
+/whoosh_index/
+*.conf
+settings_local.py

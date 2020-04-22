@@ -1,0 +1,10 @@
+django>=3.0
+gunicorn
+pillow
+django-crispy-forms
+boto3
+django-storages
+django-ses
+python-slugify
+django-timezone-field
+django-countries

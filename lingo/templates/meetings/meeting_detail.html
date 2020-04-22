@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load i18n crispy_forms_tags i18n static %}
+
+
+{% block content %}
+
+
+<div class="container">
+
+    <div class="text-center">
+
+        <h1 class="mb-4">
+            {% blocktrans %}{{ meeting }} session{% endblocktrans %}
+            <br>
+            <small class="text-muted">
+                {{ meeting.time }}
+            </small>
+        </h1>
+
+    </div>
+
+
+    <p class="lead text-center">
+
+        {% if meeting.host == user %}
+            {% trans "You are hosting this session." %}
+            <div class="text-center mt-4">
+                <a href="{{ meeting.start_url }}" target="_blank" class="btn btn-primary btn-lg">{% trans "Start the meeting" %}</a>
+            </div>
+        {% else %}
+            {% if participation %}
+                {% if participation.tutor %}
+                    {% trans "You are tutoring at this session." %}
+                {% else %}
+                    {% trans "You are attending this session." %}
+                {% endif %}
+                <div class="text-center mt-4">
+                    <a href="{{ meeting.join_url }}" target="_blank" class="btn btn-primary btn-lg">{% trans "Go to the meeting" %}</a>
+                </div>
+
+                <div class="mt-4 text-center">
+                    <a href="{% url 'meeting_rsvp_cancel' meeting_id=meeting.id %}">{% trans "Cancel your participation" %}</a>
+                </div>
+
+            {% else %}
+
+                <h4 class="text-center my-4">{% trans "Reserve your place!" %}</h4>
+
+                <form method="post">
+
+                    {% csrf_token %}
+
+                    <div id="div_id_tutor" class="form-group">
+
+                        <table align="center">
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" checked="checked" name="tutor" id="id_tutor_1" value="False">
+                                        <label for="id_tutor_1" class="custom-control-label lead">
+                                            {% trans "I want to practice" %}
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" name="tutor" id="id_tutor_2" value="True">
+                                        <label for="id_tutor_2" class="custom-control-label lead">
+                                            {% trans "I want to tutor" %}
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">{% trans "Join!" %}</button>
+                    </div>
+
+                </form>
+
+            {% endif %}
+        {% endif %}
+
+    </p>
+
+    <p class="my-3">&nbsp;</p>
+
+    <p class="my-4 text-center">
+
+        <a href="https://twitter.com/share?url={{ request.build_absolute_uri }}&text={% blocktrans with time=meeting.time %}Join the {{ meeting }} session @ {{ time }}{% endblocktrans %} at Lingo Cafe&ref_src=twsrc%5Etfw" target="_blank">
+            <img src="{% static 'logo-twitter.svg' %}" height="28" style="opacity: .5;" alt="{% trans 'Share on Twitter' %}">
+        </a>
+
+    </p>
+
+
+</div>
+
+
+{% endblock %}
