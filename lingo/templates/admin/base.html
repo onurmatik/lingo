@@ -1,0 +1,10 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block footer %}
+
+  {{ block.super }}
+
+  <script src="{% static 'js/awesome_django_timezones.js' %}"></script>
+
+{% endblock %}

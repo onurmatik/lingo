@@ -172,7 +172,7 @@ msgstr ""
 
 #: lingo/templates/index.html:18
 msgid "Your meeting is live now!"
-msgstr "Toplantın şu anda devam gerçekleşiyor!"
+msgstr "Toplantın şu anda gerçekleşiyor!"
 
 #: lingo/templates/index.html:20
 msgid "Your next meeting:"

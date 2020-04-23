@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'crispy_forms',
+    'awesome_django_timezones',
     'timezone_field',
     'django_countries',
 
@@ -50,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'awesome_django_timezones.middleware.TimezonesMiddleware',
 ]
 
 ROOT_URLCONF = 'lingo.urls'
