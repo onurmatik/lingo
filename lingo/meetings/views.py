@@ -40,8 +40,8 @@ def meeting_detail(request, meeting_id):
 class RsvpForm(forms.Form):
     tutor = forms.ChoiceField(
         choices=(
-            (False, _('I want to practice')),
-            (True, _('I want to tutor')),
+            (False, _('I want to practice the language')),
+            (True, _('I want to co-host the session')),
         ),
         widget=forms.RadioSelect(),
         initial=False,
@@ -98,7 +98,7 @@ class MeetingRequestForm(forms.ModelForm):
         }
         help_texts = {
             'language': _('Language of the session you are suggesting.'),
-            'tutor': _('You can participate in a session to practice or to tutor the language.'),
+            'tutor': _('You can participate in a meeting to practice the language or co-host the session.'),
             'country': _('The country you are living in.'),
             'notes': _('Specify if you have anything to add.'),
         }

@@ -45,7 +45,7 @@ class Meeting(models.Model):
 class MeetingParticipant(models.Model):
     meeting = models.ForeignKey(Meeting, on_delete=models.CASCADE, verbose_name=_('meeting'))
     participant = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('participant'))
-    tutor = models.BooleanField(_('tutor'), default=False)
+    tutor = models.BooleanField(_('co-host'), default=False)
     joined = models.DateTimeField(_('time joined'), auto_now_add=True)
 
     class Meta:
@@ -55,9 +55,9 @@ class MeetingParticipant(models.Model):
 class MeetingRequest(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('user'))
     language = models.ForeignKey(Language, on_delete=models.CASCADE, verbose_name=_('language'))
-    tutor = models.BooleanField(_('tutor'), default=False, choices=(
-        (False, _('Practice')),
-        (True, _('Tutor')),
+    tutor = models.BooleanField(_('co-host'), default=False, choices=(
+        (False, _('Practice the language')),
+        (True, _('Co-host the session')),
     ))
     country = CountryField(_('country'), blank=True, null=True)
     notes = models.TextField(_('notes'), blank=True, null=True)

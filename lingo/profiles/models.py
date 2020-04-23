@@ -36,7 +36,7 @@ class ProfileLanguage(models.Model):
         on_delete=models.CASCADE,
         verbose_name=_('language')
     )
-    tutor = models.BooleanField(_('tutor'), default=False)
+    tutor = models.BooleanField(_('can co-host'), default=False)
     time = models.DateTimeField(_('time'), auto_now_add=True)
 
     def __str__(self):
