@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from lingo.meetings.views import meeting_list, meeting_detail, meeting_rsvp_cancel, meeting_request
-from lingo.views import IndexView, signup
+from lingo.views import IndexView, signup, set_language
 
 
 urlpatterns = [
@@ -16,4 +16,7 @@ urlpatterns = [
     path('meetings/<int:meeting_id>/meeting_rsvp_cancel/', meeting_rsvp_cancel, name='meeting_rsvp_cancel'),
     path('meetings/request/', meeting_request, name='meeting_request'),
     path('meetings/', meeting_list, name='meeting_list'),
+
+    path('lang/', set_language, name='set_lang'),
+
 ]

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 17:54+0000\n"
+"POT-Creation-Date: 2020-04-23 16:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -162,17 +162,17 @@ msgstr "profil"
 msgid "reported by"
 msgstr "rapor eden"
 
-#: lingo/settings.py:116
+#: lingo/settings.py:119
 msgid "English"
 msgstr ""
 
-#: lingo/settings.py:117
+#: lingo/settings.py:120
 msgid "Turkish"
 msgstr ""
 
 #: lingo/templates/index.html:18
 msgid "Your meeting is live now!"
-msgstr "Toplantın şu anda gerçekleşiyor!"
+msgstr "Buluşma şu anda gerçekleşiyor!"
 
 #: lingo/templates/index.html:20
 msgid "Your next meeting:"
@@ -219,16 +219,28 @@ msgid "About"
 msgstr "Hakkında"
 
 #: lingo/templates/index.html:121
-msgid ""
-"Lingo Cafe is where expats and immigrant meet locals to practice language "
-"and socialize."
-msgstr "Lingo Cafe, göçmenlerin yerlilerle buluşup dil pratiği yaparak sosyalleştiği bir alandır."
+msgid "Lingo Cafe is a free and open social platform for practising language."
+msgstr ""
+"Lingo Cafe dil pratiği yaparak sosyalleşmek için açık ve ücretsiz bir "
+"alandır."
 
-#: lingo/templates/index.html:125
+#: lingo/templates/index.html:128
+msgid "How it works"
+msgstr ""
+
+#: lingo/templates/index.html:130
+msgid "Privacy policy"
+msgstr ""
+
+#: lingo/templates/index.html:132
+msgid "Terms of use"
+msgstr ""
+
+#: lingo/templates/index.html:139
 msgid "Message @lingo_cafe"
 msgstr "@lingo_cafe'ye yaz"
 
-#: lingo/templates/index.html:148
+#: lingo/templates/index.html:161
 msgid "Are you sure you want to cancel your participation?"
 msgstr "Katılımını iptal etmek istediğine emin misin?"
 
@@ -271,7 +283,8 @@ msgid "Join!"
 msgstr "Katıl!"
 
 #: lingo/templates/meetings/meeting_detail.html:95
-msgid "Join the %(meeting)s session"
+#, python-format
+msgid "Join the %(meeting)s session @ %(time)s"
 msgstr "%(meeting)s buluşmasına katıl @ %(time)s"
 
 #: lingo/templates/meetings/meeting_detail.html:96
@@ -283,12 +296,13 @@ msgid "Count me in!"
 msgstr "Beni de ekleyin"
 
 #: lingo/templates/registration/login.html:5
+#, python-format
 msgid ""
 "Please enter a correct %(username)s and password. Note that both fields may "
 "be case-sensitive."
 msgstr ""
-"Lütfen %(username)s ve parolanı kontrol et. Her iki alan da büyük küçük harfe "
-"duyarlıdır."
+"Lütfen %(username)s ve parolanı kontrol et. Her iki alan da büyük küçük "
+"harfe duyarlıdır."
 
 #: lingo/templates/registration/login.html:13
 msgid "Please login"
