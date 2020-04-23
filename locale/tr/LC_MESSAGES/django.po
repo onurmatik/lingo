@@ -238,7 +238,7 @@ msgstr "Kullanım kuralları"
 
 #: lingo/templates/index.html:135
 msgid "Contact"
-msgstr "İ"
+msgstr "İletişim"
 
 #: lingo/templates/index.html:156
 msgid "Are you sure you want to cancel your participation?"
@@ -357,7 +357,7 @@ msgid "Welcome to Lingo Cafe!"
 msgstr "Lingo Cafe'ye hoşgeldin!"
 
 #~ msgid "Terms of use"
-#~ msgstr "Kulla"
+#~ msgstr "Kullanım kuralları"
 
 #~ msgid "can co-host"
 #~ msgstr "kolaylaştırıcı"
