@@ -41,17 +41,6 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='MeetingPoll',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('rate', models.PositiveSmallIntegerField(choices=[(1, 'Poor'), (2, 'OK'), (3, 'Good')], verbose_name='rate')),
-                ('notes', models.TextField(blank=True, null=True, verbose_name='notes')),
-                ('time', models.DateTimeField(auto_now_add=True, verbose_name='time')),
-                ('meeting', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='meetings.Meeting', verbose_name='meeting')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='user')),
-            ],
-        ),
-        migrations.CreateModel(
             name='MeetingParticipant',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
