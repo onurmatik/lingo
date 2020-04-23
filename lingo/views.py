@@ -13,7 +13,6 @@ from django.contrib import messages
 from django.utils.translation import ugettext as _
 from django import forms
 from lingo.meetings.models import Meeting
-from lingo.profiles.models import Profile
 
 
 class SignUpForm(UserCreationForm):
@@ -36,7 +35,10 @@ def signup(request):
             user = authenticate(username=u.username, password=raw_password)
             login(request, user)
             messages.success(request, _('Welcome to Lingo Cafe!'))
-            return redirect('index')
+            if request.POST.get('next'):
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect('index')
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {

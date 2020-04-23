@@ -14,7 +14,10 @@
 
                 <form method="post">
 
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
+
                     {% csrf_token %}
+
                     {{ form|crispy }}
 
                     <button type="submit" class="btn btn-primary">{% trans "Sign up" %}</button>

@@ -51,7 +51,7 @@
                 </h5>
 
                 <div class="text-center">
-                    <a href="{% url 'signup' %}" class="btn btn-outline-primary btn-lg text-center">
+                    <a href="{% url 'signup' %}?next={{ next }}" class="btn btn-outline-primary btn-lg text-center">
                         {% trans "Sign up" %}
                     </a>
                 </div>

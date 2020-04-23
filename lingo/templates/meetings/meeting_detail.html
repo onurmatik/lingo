@@ -44,44 +44,55 @@
 
             {% else %}
 
-                <h4 class="text-center my-4">{% trans "Reserve your place!" %}</h4>
 
-                <form method="post">
+                {% if user.is_anonymous %}
 
-                    {% csrf_token %}
+                    <a href="{% url 'meeting_rsvp' meeting_id=meeting.id %}" class="btn btn-primary btn-lg">
+                        {% trans "Reserve your place!" %}
+                    </a>
 
-                    <div id="div_id_tutor" class="form-group">
+                {% else %}
 
-                        <table align="center">
-                            <tr>
-                                <td>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" checked="checked" name="tutor" id="id_tutor_1" value="False">
-                                        <label for="id_tutor_1" class="custom-control-label lead">
-                                            {% trans "I want to practice" %}
-                                        </label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" name="tutor" id="id_tutor_2" value="True">
-                                        <label for="id_tutor_2" class="custom-control-label lead">
-                                            {% trans "I want to tutor" %}
-                                        </label>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                    <h4 class="text-center my-4">{% trans "Reserve your place!" %}</h4>
 
-                    </div>
+                    <form method="post" action="{% url 'meeting_rsvp' meeting_id=meeting.id %}">
 
-                    <div class="text-center mt-4">
-                        <button type="submit" class="btn btn-primary btn-lg">{% trans "Join!" %}</button>
-                    </div>
+                        {% csrf_token %}
 
-                </form>
+                        <div id="div_id_tutor" class="form-group">
+
+                            <table align="center">
+                                <tr>
+                                    <td>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" checked="checked" name="tutor" id="id_tutor_1" value="False">
+                                            <label for="id_tutor_1" class="custom-control-label lead">
+                                                {% trans "I want to practice" %}
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" name="tutor" id="id_tutor_2" value="True">
+                                            <label for="id_tutor_2" class="custom-control-label lead">
+                                                {% trans "I want to co-host" %}
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">{% trans "Join!" %}</button>
+                        </div>
+
+                    </form>
+
+                {% endif %}
 
             {% endif %}
         {% endif %}
