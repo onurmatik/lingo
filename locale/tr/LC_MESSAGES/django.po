@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 22:02+0000\n"
+"POT-Creation-Date: 2020-04-24 20:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,8 +38,8 @@ msgid "time"
 msgstr "zaman"
 
 #: lingo/meetings/models.py:12
-msgid "Meeting password"
-msgstr "Toplanti şifresi"
+msgid "meeting password"
+msgstr "toplanti şifresi"
 
 #: lingo/meetings/models.py:18
 msgid "meeting host"
@@ -59,14 +59,14 @@ msgstr "Katılım bağlantısı"
 
 #: lingo/meetings/models.py:46 lingo/meetings/models.py:68
 msgid "meeting"
-msgstr "toplantı"
+msgstr "buluşma"
 
-#: lingo/meetings/models.py:47
+#: lingo/meetings/models.py:47 lingo/meetings/models.py:59
 msgid "participant"
 msgstr "katılımcı"
 
 #: lingo/meetings/models.py:48 lingo/meetings/models.py:58
-#: lingo/profiles/models.py:39
+#: lingo/meetings/models.py:60 lingo/profiles/models.py:39
 msgid "co-host"
 msgstr "kolaylaştırıcı"
 
@@ -78,14 +78,6 @@ msgstr "katılma zamanı"
 #: lingo/profiles/models.py:13 lingo/profiles/models.py:53
 msgid "user"
 msgstr "kullanıcı"
-
-#: lingo/meetings/models.py:59
-msgid "Practice the language"
-msgstr "Bir dili pratik etmek"
-
-#: lingo/meetings/models.py:60
-msgid "Co-host the session"
-msgstr "Bu oturumda kolaylaştırıcı ol"
 
 #: lingo/meetings/models.py:62 lingo/profiles/models.py:15
 msgid "country"
@@ -112,41 +104,45 @@ msgstr "Orta"
 msgid "Good"
 msgstr "İyi"
 
-#: lingo/meetings/views.py:43
-msgid "I want to practice the language"
-msgstr "Bu dili pratik etmek istiyorum"
-
-#: lingo/meetings/views.py:44
-msgid "I want to co-host the session"
+#: lingo/meetings/views.py:27
+msgid "I want to co-host this session"
 msgstr "Bu oturumda kolaylaştırıcı olmak istiyorum"
 
-#: lingo/meetings/views.py:96
+#: lingo/meetings/views.py:32
+msgid ""
+"Co-hosts are facilitators of the session and guide the participants. <a href="
+"\"{}\">Learn more</a>."
+msgstr ""
+"Kolaylaştırıcılar katılımcılara dil ve sosyalleşme konularında yardımcı "
+"olurlar. <a href=\"{}\">Daha fazla bilgi</a>."
+
+#: lingo/meetings/views.py:123
 msgid "Your role"
 msgstr "Oturuma katılım şeklin"
 
-#: lingo/meetings/views.py:97
+#: lingo/meetings/views.py:124
 msgid "Your country"
 msgstr "Yaşadığın ülke"
 
-#: lingo/meetings/views.py:100
+#: lingo/meetings/views.py:127
 msgid "Language of the session you are suggesting."
 msgstr "Önerdiğin oturumun dili."
 
-#: lingo/meetings/views.py:101
+#: lingo/meetings/views.py:128
 msgid ""
 "You can participate in a meeting to practice the language or co-host the "
 "session."
 msgstr "Bir buluşmaya katılabilir veya oturumda kolaylaştırıcı olabilirsin."
 
-#: lingo/meetings/views.py:102
+#: lingo/meetings/views.py:129
 msgid "The country you are living in."
 msgstr "Yaşamakta olduğun ülke."
 
-#: lingo/meetings/views.py:103
+#: lingo/meetings/views.py:130
 msgid "Specify if you have anything to add."
 msgstr "Eklemek istediklerin."
 
-#: lingo/meetings/views.py:129
+#: lingo/meetings/views.py:156
 msgid "Thank you! Your sugestion is recorded."
 msgstr "Teşekkürler! Önerini aldık."
 
@@ -212,7 +208,7 @@ msgstr "Bir dili pratik etmek veya kolaylaştırıcı olmak ister misin?"
 
 #: lingo/templates/index.html:112 lingo/templates/meetings/request_form.html:10
 msgid "Suggest a meeting"
-msgstr "Oturum öner"
+msgstr "Buluşma öner"
 
 #: lingo/templates/index.html:117
 msgid "About"
@@ -224,23 +220,23 @@ msgstr ""
 "Lingo Cafe dil pratiği yaparak sosyalleşmek için açık ve ücretsiz bir "
 "alandır."
 
-#: lingo/templates/index.html:128
-msgid "How it works"
-msgstr "Nasıl işliyor?"
+#: lingo/templates/index.html:129
+msgid "Details"
+msgstr "Detaylar"
 
-#: lingo/templates/index.html:130
+#: lingo/templates/index.html:133
 msgid "Privacy policy"
 msgstr "Gizlilik politikası"
 
-#: lingo/templates/index.html:132
+#: lingo/templates/index.html:137
 msgid "Code of conduct"
 msgstr "Kullanım kuralları"
 
-#: lingo/templates/index.html:135
+#: lingo/templates/index.html:141
 msgid "Contact"
 msgstr "İletişim"
 
-#: lingo/templates/index.html:156
+#: lingo/templates/index.html:162
 msgid "Are you sure you want to cancel your participation?"
 msgstr "Katılımını iptal etmek istediğine emin misin?"
 
@@ -248,59 +244,81 @@ msgstr "Katılımını iptal etmek istediğine emin misin?"
 #: lingo/templates/meetings/rsvp_form.html:13
 #, python-format
 msgid "%(meeting)s session"
-msgstr "%(meeting)s oturumu"
+msgstr "%(meeting)s buluşması"
 
-#: lingo/templates/meetings/meeting_detail.html:26
+#: lingo/templates/meetings/meeting_detail.html:28
 msgid "You are hosting this session."
 msgstr "Bu oturumu sen yönetiyorsun."
 
-#: lingo/templates/meetings/meeting_detail.html:28
+#: lingo/templates/meetings/meeting_detail.html:30
 msgid "Start the meeting"
 msgstr "Oturumu başlat"
 
-#: lingo/templates/meetings/meeting_detail.html:33
+#: lingo/templates/meetings/meeting_detail.html:36
 msgid "You are co-hosting this session."
 msgstr "Bu oturumun kolaylaştırıcısısın."
 
-#: lingo/templates/meetings/meeting_detail.html:35
+#: lingo/templates/meetings/meeting_detail.html:38
 msgid "You are attending this session."
 msgstr "Bu oturuma katılıyorsun."
 
-#: lingo/templates/meetings/meeting_detail.html:38
+#: lingo/templates/meetings/meeting_detail.html:45
 msgid "Go to the meeting"
 msgstr "Buluşmaya git"
 
-#: lingo/templates/meetings/meeting_detail.html:42
+#: lingo/templates/meetings/meeting_detail.html:49
+#: lingo/templates/meetings/meeting_detail.html:123
+#, python-format
+msgid "%(timeuntil)s left"
+msgstr "%(timeuntil)s kaldı"
+
+#: lingo/templates/meetings/meeting_detail.html:55
 msgid "Cancel your participation"
 msgstr "Katılımını iptal et"
 
-#: lingo/templates/meetings/meeting_detail.html:51
-#: lingo/templates/meetings/meeting_detail.html:56
-msgid "Reserve your place!"
-msgstr "Yerini ayırt!"
+#: lingo/templates/meetings/meeting_detail.html:63
+#: lingo/templates/meetings/meeting_detail.html:68
+msgid "Join this session!"
+msgstr "Sen de katıl!"
 
-#: lingo/templates/meetings/meeting_detail.html:70
-#: lingo/templates/meetings/rsvp_form.html:40
-msgid "I want to practice"
-msgstr "Pratik yapmak istiyorum"
+#: lingo/templates/meetings/meeting_detail.html:87
+msgid "Reserve your place"
+msgstr "Yerini ayırt"
 
-#: lingo/templates/meetings/meeting_detail.html:80
-#: lingo/templates/meetings/rsvp_form.html:50
-msgid "I want to co-host"
-msgstr "Kolaylaştırıcı olmak istiyorum"
+#: lingo/templates/meetings/meeting_detail.html:91
+#, python-format
+msgid ""
+"By joining a session, you accept the community <a href=\"%(url_conduct)s"
+"\">code of conduct</a>."
+msgstr ""
+"Oturuma katılarak, topluluk <a href=\"%(url_conduct)s\">kullanım "
+"kurallarını</a> kabul etmiş oluyorsun."
 
-#: lingo/templates/meetings/meeting_detail.html:90
-msgid "Join!"
-msgstr "Katıl!"
+#: lingo/templates/meetings/meeting_detail.html:111
+msgid "This meeting is finished!"
+msgstr "Bu buluşma bitti!"
 
-#: lingo/templates/meetings/meeting_detail.html:106
+#: lingo/templates/meetings/meeting_detail.html:121
+#, python-format
+msgid "Next %(meeting)s session"
+msgstr "Gelecek %(meeting)s buluşması"
+
+#: lingo/templates/meetings/meeting_detail.html:136
 #, python-format
 msgid "Join the %(meeting)s session @ %(time)s"
 msgstr "%(meeting)s buluşmasına katıl @ %(time)s"
 
-#: lingo/templates/meetings/meeting_detail.html:107
+#: lingo/templates/meetings/meeting_detail.html:137
 msgid "Share on Twitter"
 msgstr "Twitter'da paylaş"
+
+#: lingo/templates/meetings/rsvp_form.html:40
+msgid "I want to practice"
+msgstr "Pratik yapmak istiyorum"
+
+#: lingo/templates/meetings/rsvp_form.html:50
+msgid "I want to co-host"
+msgstr "Kolaylaştırıcı olmak istiyorum"
 
 #: lingo/templates/meetings/rsvp_form.html:60
 msgid "Count me in!"
@@ -332,15 +350,15 @@ msgstr "Kayıtlı değil misin?"
 msgid "Sign up"
 msgstr "Kayıt ol"
 
-#: lingo/urls.py:26
+#: lingo/urls.py:31
 msgid "Lingo Cafe"
 msgstr "Lingo Cafe"
 
-#: lingo/urls.py:27
+#: lingo/urls.py:32
 msgid "Lingo Cafe Administration"
 msgstr "Lingo Cafe Yönetimi"
 
-#: lingo/urls.py:28
+#: lingo/urls.py:33
 msgid "Lingo Cafe Management"
 msgstr "Lingo Cafe Yönetimi"
 
@@ -355,6 +373,27 @@ msgstr "Eposta"
 #: lingo/views.py:37
 msgid "Welcome to Lingo Cafe!"
 msgstr "Lingo Cafe'ye hoşgeldin!"
+
+#~ msgid "How it works"
+#~ msgstr "Nasıl işliyor?"
+
+#~ msgid "I want to practice the language"
+#~ msgstr "Bu dili pratik etmek istiyorum"
+
+#~ msgid "Join!"
+#~ msgstr "Katıl!"
+
+#~ msgid "Participant"
+#~ msgstr "Katılımcı"
+
+#~ msgid "Co-host"
+#~ msgstr "Kolaylaştırıcı"
+
+#~ msgid "Practice the language"
+#~ msgstr "Bir dili pratik etmek"
+
+#~ msgid "Co-host the session"
+#~ msgstr "Bu oturumda kolaylaştırıcı ol"
 
 #~ msgid "Terms of use"
 #~ msgstr "Kullanım kuralları"

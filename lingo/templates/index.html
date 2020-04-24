@@ -125,11 +125,19 @@
 
 			<p class="mt-2">
 
-				<a href="">{% trans "How it works" %}</a>
+				<a href="{% url 'docs_details' %}">
+					{% trans "Details" %}
+				</a>
 				|
-				<a href="">{% trans "Privacy policy" %}</a>
+				{% comment %}
+				<a href="{% url 'docs_privacy' %}">
+					{% trans "Privacy policy" %}
+				</a>
 				|
-				<a href="">{% trans "Code of conduct" %}</a>
+				{% endcomment %}
+				<a href="{% url 'docs_conduct' %}">
+					{% trans "Code of conduct" %}
+				</a>
 				|
 				<a href="https://twitter.com/messages/compose?recipient_id=1245017306046124036&ref_src=twsrc%5Etfw" target="_blank">
 					{% trans "Contact" %}

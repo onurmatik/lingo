@@ -9,7 +9,7 @@ from lingo.languages.models import Language
 class Meeting(models.Model):
     language = models.ForeignKey(Language, verbose_name=_('language'), on_delete=models.CASCADE)
     time = models.DateTimeField(_('time'))
-    password = models.CharField(_('Meeting password'), max_length=20, blank=True, null=True)
+    password = models.CharField(_('meeting password'), max_length=20, blank=True, null=True)
     host = models.ForeignKey(
         User,
         blank=True, null=True,
@@ -56,8 +56,8 @@ class MeetingRequest(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_('user'))
     language = models.ForeignKey(Language, on_delete=models.CASCADE, verbose_name=_('language'))
     tutor = models.BooleanField(_('co-host'), default=False, choices=(
-        (False, _('Practice the language')),
-        (True, _('Co-host the session')),
+        (False, _('participant')),
+        (True, _('co-host')),
     ))
     country = CountryField(_('country'), blank=True, null=True)
     notes = models.TextField(_('notes'), blank=True, null=True)

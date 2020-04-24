@@ -9,95 +9,125 @@
 
     <div class="text-center">
 
-        <h1 class="mb-4">
+        <h1 class="mb-2">
             {% blocktrans %}{{ meeting }} session{% endblocktrans %}
-            <br>
-            <small class="text-muted">
+            <small class="text-muted d-block my-2">
                 {{ meeting.time }}
             </small>
         </h1>
 
     </div>
 
+    <br>
 
-    <p class="lead text-center">
+    {% if meeting_status != 'PASSED' %}
 
-        {% if meeting.host == user %}
-            {% trans "You are hosting this session." %}
-            <div class="text-center mt-4">
-                <a href="{{ meeting.start_url }}" target="_blank" class="btn btn-primary btn-lg">{% trans "Start the meeting" %}</a>
-            </div>
-        {% else %}
-            {% if participation %}
-                {% if participation.tutor %}
-                    {% trans "You are co-hosting this session." %}
-                {% else %}
-                    {% trans "You are attending this session." %}
-                {% endif %}
+        <p class="text-center">
+
+            {% if meeting.host == user %}
+                {% trans "You are hosting this session." %}
                 <div class="text-center mt-4">
-                    <a href="{{ meeting.join_url }}" target="_blank" class="btn btn-primary btn-lg">{% trans "Go to the meeting" %}</a>
+                    <a href="{{ meeting.start_url }}" target="_blank" class="btn btn-primary btn-lg">{% trans "Start the meeting" %}</a>
                 </div>
-
-                <div class="mt-4 text-center">
-                    <a href="{% url 'meeting_rsvp_cancel' meeting_id=meeting.id %}">{% trans "Cancel your participation" %}</a>
-                </div>
-
             {% else %}
+                {% if participation %}
 
+                    {% if participation.tutor %}
+                        {% trans "You are co-hosting this session." %}
+                    {% else %}
+                        {% trans "You are attending this session." %}
+                    {% endif %}
 
-                {% if user.is_anonymous %}
+                    <div class="text-center mt-4">
+                        <a href="{{ meeting.join_url }}" target="_blank"
+                           class="btn btn-primary btn-lg {% if meeting_status != 'NOW' %}disabled{% endif %}"
+                        >
+                            {% trans "Go to the meeting" %}
+                        </a>
+                        {% if meeting_status != 'NOW' %}
+                            <div class="text-muted my-2">
+                                {% blocktrans with meeting.time|timeuntil as timeuntil %}{{ timeuntil }} left{% endblocktrans %}
+                            </div>
+                        {% endif %}
+                    </div>
 
-                    <a href="{% url 'meeting_rsvp' meeting_id=meeting.id %}" class="btn btn-primary btn-lg">
-                        {% trans "Reserve your place!" %}
-                    </a>
+                    <div class="mt-4 text-center">
+                        <a href="{% url 'meeting_rsvp_cancel' meeting_id=meeting.id %}">{% trans "Cancel your participation" %}</a>
+                    </div>
 
                 {% else %}
 
-                    <h4 class="text-center my-4">{% trans "Reserve your place!" %}</h4>
+                    {% if user.is_anonymous %}
 
-                    <form method="post" action="{% url 'meeting_rsvp' meeting_id=meeting.id %}">
+                        <a href="{% url 'meeting_rsvp' meeting_id=meeting.id %}" class="btn btn-primary btn-lg">
+                            {% trans "Join this session!" %}
+                        </a>
 
-                        {% csrf_token %}
+                    {% else %}
 
-                        <div id="div_id_tutor" class="form-group">
+                        <h3 class="text-center my-4">{% trans "Join this session!" %}</h3>
 
-                            <table align="center">
-                                <tr>
-                                    <td>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" checked="checked" name="tutor" id="id_tutor_1" value="False">
-                                            <label for="id_tutor_1" class="custom-control-label lead">
-                                                {% trans "I want to practice" %}
-                                            </label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="tutor" id="id_tutor_2" value="True">
-                                            <label for="id_tutor_2" class="custom-control-label lead">
-                                                {% trans "I want to co-host" %}
-                                            </label>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
+                        <form method="post" action="{% url 'meeting_rsvp' meeting_id=meeting.id %}">
 
-                        </div>
+                            {% csrf_token %}
 
-                        <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary btn-lg">{% trans "Join!" %}</button>
-                        </div>
+                            <div id="div_id_tutor" class="form-group">
 
-                    </form>
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            {{ form|crispy }}
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg">{% trans "Reserve your place" %}</button>
+
+                                <p class="small text-muted mt-4">
+                                    {% url 'docs_conduct' as url_conduct %}
+                                    {% blocktrans %}By joining a session, you accept the community <a href="{{ url_conduct }}">code of conduct</a>.{% endblocktrans %}
+                                </p>
+
+                            </div>
+
+                        </form>
+
+                    {% endif %}
 
                 {% endif %}
 
             {% endif %}
+
+        </p>
+
+    {% else %}
+
+        <div class="row">
+            <div class="offset-md-2 col-md-8">
+                <div class="alert alert-warning my-4" role="alert">
+                    <strong>{% trans "This meeting is finished!" %}</strong>
+                </div>
+            </div>
+        </div>
+
+        {% if meeting_next %}
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="alert alert-success mb-3 show" role="alert">
+						<strong>
+                            {% blocktrans %}Next {{ meeting }} session{% endblocktrans %}:
+							<a href="{{ meeting.get_absolute_url }}">{{ meeting.time }}</a>
+                            <small>({% blocktrans with meeting_next.time|timeuntil as timeuntil %}{{ timeuntil }} left{% endblocktrans %})</small>
+						</strong>
+					</div>
+				</div>
+			</div>
         {% endif %}
 
-    </p>
+    {% endif %}
 
     <p class="my-3">&nbsp;</p>
 

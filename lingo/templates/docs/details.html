@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <div class="container">
+
+        <h1>
+            Welcome to Lingo Cafe!
+        </h1>
+
+        <p class="lead my-4">
+            Lingo Cafe is an open community of people from all over the world practising language and socializing.
+        </p>
+
+        <p class="my-4">
+            We meet over online video conference calls.
+            Sessions last 2 hours and host up to 100 participants.
+            Conversations take place in smaller groups of usually up to 5 people.
+        </p>
+
+        <p class="my-4">
+            Each meeting has one topic language.
+            Participants are expected to have at least a very basic level of understanding the session language.
+        </p>
+
+        <p class="my-4">
+            During the sessions, hosts guide the participants by facilitating conversations and assisting them during their practices.
+        </p>
+
+        <p class="my-4">
+            Anyone having fluency in the language of the session can volunteer to be a co-host.
+            Please indicate your intention to co-host a meeting when you are signing up.
+            If it is your first time, an experienced host will guide you through the process.
+        </p>
+
+        <p class="my-4">
+            Before participating in any activity, please read and make sure you fully agree with the community
+            <a href="{% url 'docs_conduct' %}">code of conduct</a>.
+        </p>
+
+    </div>
+
+{% endblock %}

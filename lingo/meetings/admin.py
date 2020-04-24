@@ -7,7 +7,7 @@ class MeetingAdmin(admin.ModelAdmin):
     list_display = ['language', 'host', 'time', 'start_url', 'join_url']
     list_filter = ['language', 'time']
     search_fields = ['host__username']
-    autocomplete_fields = ['host', 'participants']
+    autocomplete_fields = ['language', 'host', 'participants']
 
 
 @admin.register(MeetingParticipant)

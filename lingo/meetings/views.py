@@ -3,7 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django import forms
 from django.contrib import messages
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
+from django.urls import reverse_lazy
+from django.utils.text import format_lazy
 from django.shortcuts import render, redirect, get_object_or_404
 from lingo.profiles.models import ProfileLanguage
 from .models import Meeting, MeetingParticipant, MeetingRequest
@@ -17,11 +19,47 @@ def meeting_list(request):
     })
 
 
+class RsvpForm(forms.ModelForm):
+    class Meta:
+        model = MeetingParticipant
+        fields = ['tutor']
+        labels = {
+            'tutor': _('I want to co-host this session'),
+        }
+        help_texts = {
+            'tutor': format_lazy(
+                _(
+                    'Co-hosts are facilitators of the session and guide the participants. '
+                    '<a href="{}">Learn more</a>.'
+                ), reverse_lazy('docs_details'),
+            ),
+        }
+
+
 def meeting_detail(request, meeting_id):
     meeting = get_object_or_404(Meeting, id=meeting_id)
+    now = timezone.now()
     context = {
         'meeting': meeting,
     }
+    if meeting.time < now < meeting.time + timedelta(hours=2):
+        context.update({
+            'meeting_status': 'NOW',
+        })
+    elif meeting.time > now:
+        context.update({
+            'meeting_status': 'WAIT',
+        })
+    else:
+        meeting_next = Meeting.objects.filter(
+            language=meeting.language,
+            time__gte=now,
+        ).order_by('time').first()
+        context.update({
+            'meeting_status': 'PASSED',
+            'meeting_next': meeting_next,
+        })
+
     if not request.user.is_anonymous:
         participation = MeetingParticipant.objects.filter(
             meeting=meeting,
@@ -35,17 +73,6 @@ def meeting_detail(request, meeting_id):
                 'form': RsvpForm()
             })
     return render(request, 'meetings/meeting_detail.html', context)
-
-
-class RsvpForm(forms.Form):
-    tutor = forms.ChoiceField(
-        choices=(
-            (False, _('I want to practice the language')),
-            (True, _('I want to co-host the session')),
-        ),
-        widget=forms.RadioSelect(),
-        initial=False,
-    )
 
 
 @login_required
