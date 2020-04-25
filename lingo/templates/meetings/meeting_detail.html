@@ -2,6 +2,9 @@
 {% load i18n crispy_forms_tags i18n static %}
 
 
+{% block title %}{{ meeting }} @ {{ meeting.time }} - {{ block.super }}{% endblock %}
+
+
 {% block content %}
 
 
