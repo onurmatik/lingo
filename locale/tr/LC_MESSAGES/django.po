@@ -536,7 +536,7 @@ msgstr "Hesabın var mı?"
 
 #: lingo/templates/registration/signup.html:35
 msgid "Sign in"
-msgstr "Giriş"
+msgstr "Giriş yap"
 
 #: lingo/urls.py:36
 msgid "Lingo Cafe"

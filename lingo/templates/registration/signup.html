@@ -8,6 +8,15 @@
 
         <h2 class="text-center">Sign up</h2>
 
+        <div class="text-center">
+            <p class="mt-4 mb-4 text-muted">
+                {% trans "Already have an account?" %}
+                <a href="{% url 'auth' %}?next={{ request.GET.next }}">
+                    {% trans "Sign in" %}
+                </a>
+            </p>
+        </div>
+
         <div class="row">
 
             <div class="offset-md-2 col-md-8 offset-lg-3 col-lg-6">
@@ -26,15 +35,6 @@
 
             </div>
 
-        </div>
-
-        <div class="text-center">
-            <p class="mt-4 mb-2 lead">
-                {% trans "Already have an account?" %}
-                <a href="{% url 'auth' %}?next={{ request.GET.next }}">
-                    {% trans "Sign in" %}
-                </a>
-            </p>
         </div>
 
     </div>
