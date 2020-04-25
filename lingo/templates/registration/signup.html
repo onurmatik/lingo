@@ -28,6 +28,15 @@
 
         </div>
 
+        <div class="text-center">
+            <p class="mt-4 mb-2 lead">
+                {% trans "Already have an account?" %}
+                <a href="{% url 'auth' %}?next={{ request.GET.next }}">
+                    {% trans "Sign in" %}
+                </a>
+            </p>
+        </div>
+
     </div>
 
 {% endblock %}

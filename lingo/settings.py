@@ -145,7 +145,7 @@ LOCALE_PATHS = (
 )
 
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'signup'
 
 
 try:

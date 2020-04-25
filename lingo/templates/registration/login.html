@@ -42,20 +42,14 @@
                 {#<p><a href="{% url 'password_reset' %}">Lost password?</a></p>#}
 
 
-                <p class="my-2 text-center">
-                    &nbsp;
-                </p>
-
-                <h5 class="mt-4 mb-2 text-center">
-                    {% trans "Don't have an account?" %}
-                </h5>
-
                 <div class="text-center">
-                    <a href="{% url 'signup' %}?next={{ next }}" class="btn btn-outline-primary btn-lg text-center">
-                        {% trans "Sign up" %}
-                    </a>
+                    <p class="mt-4 mb-2 lead">
+                        {% trans "Don't have an account?" %}
+                        <a href="{% url 'signup' %}?next={{ request.GET.next }}">
+                            {% trans "Sign up" %}
+                        </a>
+                    </p>
                 </div>
-
             </div>
 
         </div>

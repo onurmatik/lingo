@@ -2,13 +2,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from django.utils.translation import ugettext as _
+from django.contrib.auth.views import LoginView
 from lingo.meetings.views import meeting_list, meeting_detail, meeting_rsvp, meeting_rsvp_cancel, meeting_request
-from lingo.views import IndexView, signup, set_language
+from lingo.views import IndexView, signup, set_language, AuthForm
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    path('login/', LoginView.as_view(
+        template_name='registration/login.html',
+        authentication_form=AuthForm
+    ), name='auth'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('signup/', signup, name='signup'),
 

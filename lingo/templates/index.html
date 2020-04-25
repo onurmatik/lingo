@@ -145,6 +145,22 @@
 
 			</p>
 
+
+
+		{% if user.is_anonymous %}
+			<p class="mt-2">
+
+				<a href="{% url 'login' %}">
+					{% trans "Login" %}
+				</a>
+				|
+				<a href="{% url 'signup' %}">
+					{% trans "Sign up" %}
+				</a>
+
+			</p>
+		{% endif %}
+
 	</div>
 
 

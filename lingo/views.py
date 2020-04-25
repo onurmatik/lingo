@@ -11,8 +11,16 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+from django.contrib.auth.forms import AuthenticationForm
 from django import forms
 from lingo.meetings.models import Meeting
+
+
+class AuthForm(AuthenticationForm):
+    class Meta:
+        labels = {
+            'username': _('Email address'),
+        }
 
 
 class SignUpForm(UserCreationForm):
