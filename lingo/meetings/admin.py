@@ -12,13 +12,13 @@ class MeetingAdmin(admin.ModelAdmin):
 
 @admin.register(MeetingParticipant)
 class MeetingParticipantAdmin(admin.ModelAdmin):
-    list_display = ['participant', 'meeting', 'joined']
+    list_display = ['participant', 'meeting', 'tutor', 'joined']
     autocomplete_fields = ['meeting', 'participant']
 
 
 @admin.register(MeetingRequest)
 class MeetingRequestAdmin(admin.ModelAdmin):
-    list_display = ['user', 'language', 'country', 'time']
+    list_display = ['user', 'language', 'tutor', 'country', 'time']
 
 
 @admin.register(MeetingPoll)

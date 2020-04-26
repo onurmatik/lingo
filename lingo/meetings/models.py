@@ -9,7 +9,6 @@ from lingo.languages.models import Language
 class Meeting(models.Model):
     language = models.ForeignKey(Language, verbose_name=_('language'), on_delete=models.CASCADE)
     time = models.DateTimeField(_('time'))
-    password = models.CharField(_('meeting password'), max_length=20, blank=True, null=True)
     host = models.ForeignKey(
         User,
         blank=True, null=True,
@@ -17,6 +16,9 @@ class Meeting(models.Model):
         related_name='hosted_meetings',
         verbose_name=_('meeting host'),
     )
+    start_url = models.URLField(_('Start URL'), blank=True, null=True)
+    join_url = models.URLField(_('Join URL'), blank=True, null=True)
+    password = models.CharField(_('meeting password'), max_length=20, blank=True, null=True)
     participants = models.ManyToManyField(
         User,
         blank=True,
@@ -24,8 +26,16 @@ class Meeting(models.Model):
         related_name='participated_meetings',
         verbose_name=_('participants'),
     )
-    start_url = models.URLField(_('Start URL'), blank=True, null=True)
-    join_url = models.URLField(_('Join URL'), blank=True, null=True)
+    type = models.PositiveSmallIntegerField(_('meeting type'), choices=(
+        (1, _('practice')),
+        (2, _('community meeting')),
+    ), default=1)
+    cancelled = models.BooleanField(default=False)
+    cancellation_reason = models.PositiveSmallIntegerField(blank=True, null=True, choices=(
+        (1, _('no host')),
+        (2, _('no participant')),
+        (0, _('other')),
+    ))
 
     def __str__(self):
         return str(_(self.language.name))
@@ -40,6 +50,10 @@ class Meeting(models.Model):
             # TODO: Zoom API things
             pass
         super().save(**kwargs)
+
+    def clean(self):
+        # TODO: check for overlaps
+        pass
 
 
 class MeetingParticipant(models.Model):
