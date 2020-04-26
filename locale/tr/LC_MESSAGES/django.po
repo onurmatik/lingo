@@ -368,7 +368,7 @@ msgstr "Şimdi"
 
 #: lingo/templates/index.html:64
 msgid "Upcoming"
-msgstr "Yakında"
+msgstr "Yaklaşan"
 
 #: lingo/templates/index.html:76
 msgid "There are no scheduled meetings."
