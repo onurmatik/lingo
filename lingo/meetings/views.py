@@ -78,6 +78,8 @@ def meeting_detail(request, meeting_id):
 @login_required
 def meeting_rsvp(request, meeting_id):
     meeting = get_object_or_404(Meeting, id=meeting_id)
+    if request.user in meeting.participants.all():
+        return redirect('meeting_detail', meeting_id=meeting.id)
     if request.method == 'POST':
         form = RsvpForm(request.POST)
         if form.is_valid():
@@ -98,6 +100,7 @@ def meeting_rsvp(request, meeting_id):
             return redirect('meeting_detail', meeting_id=meeting.id)
     else:
         form = RsvpForm()
+        # return redirect('meeting_detail', meeting_id=meeting_id)
     return render(request, 'meetings/rsvp_form.html', {
         'meeting': meeting,
         'form': form,

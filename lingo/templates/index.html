@@ -65,6 +65,10 @@
 
 		{% for meeting in meetings_soon %}
 
+			<p class="mt-2 text-muted small">
+				{% trans "Language practice meetings" %}
+			</p>
+
 			<p class="mt-2">
 				<a href="{{ meeting.get_absolute_url }}">
 					{{ meeting }} @ {{ meeting.time }}
@@ -80,7 +84,7 @@
 
 		{% if meetings_suggested %}
 
-		<h4 class="mt-4">{% trans "Recommended" %}</h4>
+			<h4 class="mt-4">{% trans "Recommended" %}</h4>
 
 			<p class="mt-2">
 
@@ -92,9 +96,30 @@
 						</a>
 					</p>
 
-				{% empty %}
+				{% endfor %}
 
-					{% trans "There are no scheduled meetings for your profile languages." %}
+			</p>
+
+		{% endif %}
+
+
+		{% if meetings_community %}
+
+			<h4 class="mt-4">{% trans "Community meetings" %}</h4>
+
+			<p class="mt-2 text-muted small">
+				{% trans "Discussions about the Lingo community" %}
+			</p>
+
+			<p class="mt-2">
+
+				{% for meeting in meetings_community %}
+
+					<p class="mt-2">
+						<a href="{{ meeting.get_absolute_url }}">
+							{{ meeting }} @ {{ meeting.time }}
+						</a>
+					</p>
 
 				{% endfor %}
 

@@ -62,11 +62,12 @@ class IndexView(TemplateView):
         now = timezone.now()
         context.update({
             'meeting_now': Meeting.objects.filter(time__lte=now, time__gt=now - timedelta(minutes=120)).first(),
-            'meetings_soon': Meeting.objects.filter(time__gte=now).order_by('time')[:6],
+            'meetings_soon': Meeting.objects.filter(time__gte=now).exclude(type=2).order_by('time')[:6],
+            'meetings_community': Meeting.objects.filter(time__gte=now).filter(type=2).order_by('time')[:6],
             'now': now,
         })
         if not self.request.user.is_anonymous:
-            qs = Meeting.objects.filter(time__gt=timezone.now() - timedelta(minutes=120))
+            qs = Meeting.objects.filter(time__gt=timezone.now() - timedelta(minutes=120)).exclude(type=2)
             context.update({
                 'meetings_user': qs.filter(
                     participants=self.request.user

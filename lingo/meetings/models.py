@@ -9,6 +9,7 @@ from lingo.languages.models import Language
 class Meeting(models.Model):
     language = models.ForeignKey(Language, verbose_name=_('language'), on_delete=models.CASCADE)
     time = models.DateTimeField(_('time'))
+    notes = models.TextField(blank=True, null=True)
     host = models.ForeignKey(
         User,
         blank=True, null=True,

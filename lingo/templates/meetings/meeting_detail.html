@@ -14,10 +14,17 @@
     <div class="text-center">
 
         <h1 class="mb-2">
-            {% blocktrans %}{{ meeting }} session{% endblocktrans %}
-            <small class="text-muted d-block my-2">
-                {{ meeting.time }}
-            </small>
+            {% if meeting.type == 2 %}
+                {% trans "Community meeting" %}
+                <small class="text-muted d-block my-2">
+                    {{ meeting.time }}
+                </small>
+            {% else %}
+                {% blocktrans %}{{ meeting }} session{% endblocktrans %}
+                <small class="text-muted d-block my-2">
+                    {{ meeting.time }}
+                </small>
+            {% endif %}
         </h1>
 
     </div>
@@ -28,12 +35,35 @@
 
         <p class="text-center">
 
+            {% if meeting.type == 2 %}
+
+                <div class="lead text-muted text-center mb-4">
+
+                    {% trans "Community meetings are open sessions for discussing the current issues and the future of the Lingo community." %}
+
+                </div>
+
+            {% elif meeting.notes %}
+
+                <div class="lead text-muted text-center mb-4">
+
+                    {{ meeting.notes }}
+
+                </div>
+
+            {% endif %}
+
+            <div class="lead text-center">
+
             {% if meeting.host == user %}
+
                 {% trans "You are hosting this session." %}
                 <div class="text-center mt-4">
                     <a href="{{ meeting.start_url }}" target="_blank" class="btn btn-primary btn-lg">{% trans "Start the meeting" %}</a>
                 </div>
+
             {% else %}
+
                 {% if participation %}
 
                     {% if participation.tutor %}
@@ -43,7 +73,7 @@
                     {% endif %}
 
                     <div class="text-center mt-4">
-                        <a href="{{ meeting.join_url }}" target="_blank"
+                        <a href="{{ meeting.join_url }}" target="_blank" style="background-color: #666; border-color: #666;"
                            class="btn btn-primary btn-lg {% if meeting_status != 'NOW' %}disabled{% endif %}"
                         >
                             {% trans "Go to the meeting" %}
@@ -77,6 +107,8 @@
 
                             <div id="div_id_tutor" class="form-group">
 
+                                {% if meeting.type == 1 %}
+
                                 <table align="center">
                                     <tr>
                                         <td>
@@ -84,6 +116,8 @@
                                         </td>
                                     </tr>
                                 </table>
+
+                                {% endif %}
 
                             </div>
 
@@ -104,6 +138,8 @@
                 {% endif %}
 
             {% endif %}
+
+            </div>
 
         </p>
 
