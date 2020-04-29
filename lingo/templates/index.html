@@ -63,11 +63,11 @@
 
 		<h4 class="mt-4">{% trans "Upcoming" %}</h4>
 
-		{% for meeting in meetings_soon %}
+		<p class="mt-2 text-muted small">
+			{% trans "Language practice meetings" %}
+		</p>
 
-			<p class="mt-2 text-muted small">
-				{% trans "Language practice meetings" %}
-			</p>
+		{% for meeting in meetings_soon %}
 
 			<p class="mt-2">
 				<a href="{{ meeting.get_absolute_url }}">
