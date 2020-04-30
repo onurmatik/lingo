@@ -12,8 +12,12 @@ class MeetingAdmin(admin.ModelAdmin):
 
 @admin.register(MeetingParticipant)
 class MeetingParticipantAdmin(admin.ModelAdmin):
-    list_display = ['participant', 'meeting', 'tutor', 'joined']
+    list_display = ['participant', 'meeting', 'meeting_time', 'tutor', 'joined']
     autocomplete_fields = ['meeting', 'participant']
+
+    def meeting_time(self, obj):
+        return obj.meeting.time
+    meeting_time.admin_order_field = 'meeting__time'
 
 
 @admin.register(MeetingRequest)
