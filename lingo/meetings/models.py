@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -10,6 +11,7 @@ class Meeting(models.Model):
     language = models.ForeignKey(Language, verbose_name=_('language'), on_delete=models.CASCADE)
     time = models.DateTimeField(_('time'))
     notes = models.TextField(blank=True, null=True)
+    documents = models.ManyToManyField('Document', through='MeetingDocument')
     host = models.ForeignKey(
         User,
         blank=True, null=True,
@@ -55,6 +57,25 @@ class Meeting(models.Model):
     def clean(self):
         # TODO: check for overlaps
         pass
+
+
+class Document(models.Model):
+    document_file = models.FileField(upload_to='documents', blank=True, null=True)
+    document_url = models.URLField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+
+    def clean(self):
+        if not self.document_file and not self.document_url:
+            raise ValidationError(_('Please upload a document or provide a URL to a document.'))
+        elif self.document_file and self.document_url:
+            raise ValidationError(_('Either upload a document or provide a URL to a document; not both.'))
+
+
+class MeetingDocument(models.Model):
+    document = models.ForeignKey(Document, on_delete=models.CASCADE, verbose_name=_('document'))
+    meeting = models.ForeignKey(Meeting, on_delete=models.CASCADE, verbose_name=_('meeting'))
+    time = models.DateTimeField(auto_now_add=True)
+    added_by = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
 
 
 class MeetingParticipant(models.Model):
