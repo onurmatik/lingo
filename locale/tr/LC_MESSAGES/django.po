@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 13:19+0000\n"
+"POT-Creation-Date: 2020-05-02 15:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,105 +26,118 @@ msgstr "kod"
 msgid "name"
 msgstr "isim"
 
-#: lingo/meetings/models.py:10 lingo/meetings/models.py:72
+#: lingo/meetings/models.py:11 lingo/meetings/models.py:93
 #: lingo/profiles/models.py:21 lingo/profiles/models.py:37
 msgid "language"
 msgstr "dil"
 
-#: lingo/meetings/models.py:11 lingo/meetings/models.py:79
-#: lingo/meetings/models.py:91 lingo/profiles/models.py:40
+#: lingo/meetings/models.py:12 lingo/meetings/models.py:100
+#: lingo/meetings/models.py:112 lingo/profiles/models.py:40
 #: lingo/profiles/models.py:62
 msgid "time"
 msgstr "zaman"
 
-#: lingo/meetings/models.py:18
+#: lingo/meetings/models.py:20
 msgid "meeting host"
 msgstr "oturum yöneticisi"
 
-#: lingo/meetings/models.py:20
+#: lingo/meetings/models.py:22
 msgid "Start URL"
 msgstr "Başlatma bağlantısı"
 
-#: lingo/meetings/models.py:21
+#: lingo/meetings/models.py:23
 msgid "Join URL"
 msgstr "Katılım bağlantısı"
 
-#: lingo/meetings/models.py:22
+#: lingo/meetings/models.py:24
 msgid "meeting password"
 msgstr "toplanti şifresi"
 
-#: lingo/meetings/models.py:28
+#: lingo/meetings/models.py:30
 msgid "participants"
 msgstr "katılımcılar"
 
-#: lingo/meetings/models.py:30
+#: lingo/meetings/models.py:32
 msgid "meeting type"
 msgstr "buluşma tipi"
 
-#: lingo/meetings/models.py:31
+#: lingo/meetings/models.py:33
 msgid "practice"
 msgstr "pratik"
 
-#: lingo/meetings/models.py:32
+#: lingo/meetings/models.py:34
 msgid "community meeting"
 msgstr "topluluk buluşması"
 
-#: lingo/meetings/models.py:36
+#: lingo/meetings/models.py:38
 msgid "no host"
 msgstr "kolaylaştırıcı yok"
 
-#: lingo/meetings/models.py:37
+#: lingo/meetings/models.py:39
 msgid "no participant"
 msgstr "katılımcı yok"
 
-#: lingo/meetings/models.py:38
+#: lingo/meetings/models.py:40
 msgid "other"
 msgstr "diğer"
 
-#: lingo/meetings/models.py:61 lingo/meetings/models.py:83
+#: lingo/meetings/models.py:69
+msgid "Please upload a document or provide a URL to a document."
+msgstr "Lütfen bir doküman yükle veya doküman URL'i gir"
+
+#: lingo/meetings/models.py:71
+msgid "Either upload a document or provide a URL to a document; not both."
+msgstr "Ya bir doküman yükle ya da bir doküman URL'i gir; ikisini birden değil"
+
+#: lingo/meetings/models.py:75
+msgid "document"
+msgstr "doküman"
+
+#: lingo/meetings/models.py:76 lingo/meetings/models.py:82
+#: lingo/meetings/models.py:104
 msgid "meeting"
 msgstr "buluşma"
 
-#: lingo/meetings/models.py:62 lingo/meetings/models.py:74
+#: lingo/meetings/models.py:83 lingo/meetings/models.py:95
 msgid "participant"
 msgstr "katılımcı"
 
-#: lingo/meetings/models.py:63 lingo/meetings/models.py:73
-#: lingo/meetings/models.py:75 lingo/profiles/models.py:39
+#: lingo/meetings/models.py:84 lingo/meetings/models.py:94
+#: lingo/meetings/models.py:96 lingo/profiles/models.py:39
 msgid "co-host"
 msgstr "kolaylaştırıcı"
 
-#: lingo/meetings/models.py:64
+#: lingo/meetings/models.py:85
 msgid "time joined"
 msgstr "katılma zamanı"
 
-#: lingo/meetings/models.py:71 lingo/meetings/models.py:84
+#: lingo/meetings/models.py:92 lingo/meetings/models.py:105
 #: lingo/profiles/models.py:13 lingo/profiles/models.py:53
 msgid "user"
 msgstr "kullanıcı"
 
-#: lingo/meetings/models.py:77 lingo/profiles/models.py:15
+#: lingo/meetings/models.py:98 lingo/profiles/models.py:15
 msgid "country"
 msgstr "ülke"
 
-#: lingo/meetings/models.py:78 lingo/meetings/models.py:90
+#: lingo/meetings/models.py:99 lingo/meetings/models.py:111
 #: lingo/profiles/models.py:61
 msgid "notes"
 msgstr "notlar"
 
-#: lingo/meetings/models.py:85
+#: lingo/meetings/models.py:106
 msgid "rate"
 msgstr "puan"
 
-#: lingo/meetings/models.py:86
+#: lingo/meetings/models.py:107
 msgid "Poor"
 msgstr "Yetersiz"
 
-#: lingo/meetings/models.py:87
+#: lingo/meetings/models.py:108
 msgid "OK"
 msgstr "Orta"
 
-#: lingo/meetings/models.py:88
+#: lingo/meetings/models.py:109
 msgid "Good"
 msgstr "İyi"
 
