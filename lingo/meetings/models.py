@@ -7,11 +7,33 @@ from django_countries.fields import CountryField
 from lingo.languages.models import Language
 
 
+LEVELS = (
+    ('A', _(
+        'I can catch some words in texts or speeches. '
+        'From time to time, by combining these words, I can grasp the context and the general meaning, '
+        'but I cannot get a complete idea of the content of the text / speech; '
+        'I have a hard time speaking / I cannot speak.'
+    )),
+    ('B', _(
+        'When I read simple texts, I can get a rough idea of the general subject; '
+        'I can understand the main idea of slow and clear conversations; '
+        'I cannot understand complex texts or speeches; '
+        'I have difficulty speaking / I cannot speak.'
+    )),
+    ('C', _(
+        'I can understand texts / speeches mostly unless they are complex, '
+        'but I want to grasp more and master the whole. '
+        'I can speak slowly with a limited vocabulary, '
+        'I want to be fluent, improve my vocabulary.'
+    ))
+)
+
+
 class Meeting(models.Model):
     language = models.ForeignKey(Language, verbose_name=_('language'), on_delete=models.CASCADE)
     time = models.DateTimeField(_('time'))
     notes = models.TextField(blank=True, null=True)
-    documents = models.ManyToManyField('Document', through='MeetingDocument')
+    resources = models.ManyToManyField('Resource', through='MeetingResource', verbose_name=_('meeting resource'))
     host = models.ForeignKey(
         User,
         blank=True, null=True,
@@ -59,20 +81,24 @@ class Meeting(models.Model):
         pass
 
 
-class Document(models.Model):
-    document_file = models.FileField(upload_to='documents', blank=True, null=True)
-    document_url = models.URLField(blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
+class Resource(models.Model):
+    title = models.CharField(_('title'), max_length=50)
+    url = models.URLField(_('URL'), blank=True, null=True)
+    type = models.CharField(_('resource type'), max_length=1, choices=(
+        ('r', 'reading'),
+        ('l', 'listening'),
+        ('w', 'watching'),
+    ))
+    description = models.TextField(_('description'), blank=True, null=True)
+    language = models.ForeignKey(Language, verbose_name=_('language'), on_delete=models.CASCADE)
+    level = models.CharField(_('level'), max_length=1, choices=LEVELS, blank=True, null=True)
 
-    def clean(self):
-        if not self.document_file and not self.document_url:
-            raise ValidationError(_('Please upload a document or provide a URL to a document.'))
-        elif self.document_file and self.document_url:
-            raise ValidationError(_('Either upload a document or provide a URL to a document; not both.'))
+    def __str__(self):
+        return self.title
 
 
-class MeetingDocument(models.Model):
-    document = models.ForeignKey(Document, on_delete=models.CASCADE, verbose_name=_('document'))
+class MeetingResource(models.Model):
+    resource = models.ForeignKey(Resource, on_delete=models.CASCADE, verbose_name=_('resource'))
     meeting = models.ForeignKey(Meeting, on_delete=models.CASCADE, verbose_name=_('meeting'))
     time = models.DateTimeField(auto_now_add=True)
     added_by = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-02 15:03+0000\n"
+"POT-Creation-Date: 2020-05-03 11:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,118 +26,170 @@ msgstr "kod"
 msgid "name"
 msgstr "isim"
 
-#: lingo/meetings/models.py:11 lingo/meetings/models.py:93
-#: lingo/profiles/models.py:21 lingo/profiles/models.py:37
+#: lingo/meetings/models.py:12
+msgid ""
+"I can catch some words in texts or speeches. From time to time, by combining "
+"these words, I can grasp the context and the general meaning, but I cannot "
+"get a complete idea of the content of the text / speech; I have a hard time "
+"speaking / I cannot speak."
+msgstr ""
+"Metinlerde ya da konuşmalarda bazı kelimeleri yakalayabiliyorum. Bu "
+"kelimeleri zaman zaman kafamda birleştirerek bağlamı ve genel anlamı "
+"çıkarabiliyorum, fakat metnin / konuşmanın içeriğine dair tam bir fikir "
+"edinemiyorum; konuşmakta çok zorlanıyorum/konuşamıyorum."
+
+#: lingo/meetings/models.py:18
+msgid ""
+"When I read simple texts, I can get a rough idea of the general subject; I "
+"can understand the main idea of slow and clear conversations; I cannot "
+"understand complex texts or speeches; I have difficulty speaking / I cannot "
+"speak."
+msgstr ""
+"Basit metinleri okuduğumda konunun geneline dair kabaca fikir "
+"edinebiliyorum; yavaş ve net olan konuşmaların ana fikrini anlayabiliyorum; "
+"Karmaşık metin ve konuşmaları anlayamıyorum; Konuşmakta zorlanıyorum / "
+"konuşamıyorum."
+
+#: lingo/meetings/models.py:24
+msgid ""
+"I can understand texts / speeches mostly unless they are complex, but I want "
+"to grasp more and master the whole. I can speak slowly with a limited "
+"vocabulary, I want to be fluent, improve my vocabulary."
+msgstr ""
+"Karmaşık olanlar haricinde metinleri / konuşmaların çoğunu anlayabiliyorum, "
+"ama daha fazla kavramak, bütününe hakim olmak istiyorum. Sınırlı bir kelime "
+"haznesiyle, yavaş ve kesik kesik konuşabiliyorum, akıcılık kazanmak, kelime "
+"haznemi geliştirmek istiyorum."
+
+#: lingo/meetings/models.py:33 lingo/meetings/models.py:93
+#: lingo/meetings/models.py:119 lingo/profiles/models.py:21
+#: lingo/profiles/models.py:37
 msgid "language"
 msgstr "dil"
 
-#: lingo/meetings/models.py:12 lingo/meetings/models.py:100
-#: lingo/meetings/models.py:112 lingo/profiles/models.py:40
+#: lingo/meetings/models.py:34 lingo/meetings/models.py:126
+#: lingo/meetings/models.py:138 lingo/profiles/models.py:40
 #: lingo/profiles/models.py:62
 msgid "time"
 msgstr "zaman"
 
-#: lingo/meetings/models.py:20
+#: lingo/meetings/models.py:36
+msgid "meeting resource"
+msgstr "referans materyal"
+
+#: lingo/meetings/models.py:42
 msgid "meeting host"
 msgstr "oturum yöneticisi"
 
-#: lingo/meetings/models.py:22
+#: lingo/meetings/models.py:44
 msgid "Start URL"
 msgstr "Başlatma bağlantısı"
 
-#: lingo/meetings/models.py:23
+#: lingo/meetings/models.py:45
 msgid "Join URL"
 msgstr "Katılım bağlantısı"
 
-#: lingo/meetings/models.py:24
+#: lingo/meetings/models.py:46
 msgid "meeting password"
 msgstr "toplanti şifresi"
 
-#: lingo/meetings/models.py:30
+#: lingo/meetings/models.py:52
 msgid "participants"
 msgstr "katılımcılar"
 
-#: lingo/meetings/models.py:32
+#: lingo/meetings/models.py:54
 msgid "meeting type"
 msgstr "buluşma tipi"
 
-#: lingo/meetings/models.py:33
+#: lingo/meetings/models.py:55
 msgid "practice"
 msgstr "pratik"
 
-#: lingo/meetings/models.py:34
+#: lingo/meetings/models.py:56
 msgid "community meeting"
 msgstr "topluluk buluşması"
 
-#: lingo/meetings/models.py:38
+#: lingo/meetings/models.py:60
 msgid "no host"
 msgstr "kolaylaştırıcı yok"
 
-#: lingo/meetings/models.py:39
+#: lingo/meetings/models.py:61
 msgid "no participant"
 msgstr "katılımcı yok"
 
-#: lingo/meetings/models.py:40
+#: lingo/meetings/models.py:62
 msgid "other"
 msgstr "diğer"
 
-#: lingo/meetings/models.py:69
-msgid "Please upload a document or provide a URL to a document."
-msgstr "Lütfen bir doküman yükle veya doküman URL'i gir"
+#: lingo/meetings/models.py:85
+msgid "title"
+msgstr "başlık"
 
-#: lingo/meetings/models.py:71
-msgid "Either upload a document or provide a URL to a document; not both."
-msgstr "Ya bir doküman yükle ya da bir doküman URL'i gir; ikisini birden değil"
+#: lingo/meetings/models.py:86
+msgid "URL"
+msgstr "URL"
 
-#: lingo/meetings/models.py:75
-msgid "document"
-msgstr "doküman"
+#: lingo/meetings/models.py:87
+msgid "resource type"
+msgstr "kaynak tipi"
 
-#: lingo/meetings/models.py:76 lingo/meetings/models.py:82
-#: lingo/meetings/models.py:104
+#: lingo/meetings/models.py:92
+msgid "description"
+msgstr "tanım"
+
+#: lingo/meetings/models.py:94
+msgid "level"
+msgstr "seviye"
+
+#: lingo/meetings/models.py:101
+msgid "resource"
+msgstr "kaynak"
+
+#: lingo/meetings/models.py:102 lingo/meetings/models.py:108
+#: lingo/meetings/models.py:130
 msgid "meeting"
 msgstr "buluşma"
 
-#: lingo/meetings/models.py:83 lingo/meetings/models.py:95
+#: lingo/meetings/models.py:109 lingo/meetings/models.py:121
 msgid "participant"
 msgstr "katılımcı"
 
-#: lingo/meetings/models.py:84 lingo/meetings/models.py:94
-#: lingo/meetings/models.py:96 lingo/profiles/models.py:39
+#: lingo/meetings/models.py:110 lingo/meetings/models.py:120
+#: lingo/meetings/models.py:122 lingo/profiles/models.py:39
 msgid "co-host"
 msgstr "kolaylaştırıcı"
 
-#: lingo/meetings/models.py:85
+#: lingo/meetings/models.py:111
 msgid "time joined"
 msgstr "katılma zamanı"
 
-#: lingo/meetings/models.py:92 lingo/meetings/models.py:105
+#: lingo/meetings/models.py:118 lingo/meetings/models.py:131
 #: lingo/profiles/models.py:13 lingo/profiles/models.py:53
 msgid "user"
 msgstr "kullanıcı"
 
-#: lingo/meetings/models.py:98 lingo/profiles/models.py:15
+#: lingo/meetings/models.py:124 lingo/profiles/models.py:15
 msgid "country"
 msgstr "ülke"
 
-#: lingo/meetings/models.py:99 lingo/meetings/models.py:111
+#: lingo/meetings/models.py:125 lingo/meetings/models.py:137
 #: lingo/profiles/models.py:61
 msgid "notes"
 msgstr "notlar"
 
-#: lingo/meetings/models.py:106
+#: lingo/meetings/models.py:132
 msgid "rate"
 msgstr "puan"
 
-#: lingo/meetings/models.py:107
+#: lingo/meetings/models.py:133
 msgid "Poor"
 msgstr "Yetersiz"
 
-#: lingo/meetings/models.py:108
+#: lingo/meetings/models.py:134
 msgid "OK"
 msgstr "Orta"
 
-#: lingo/meetings/models.py:109
+#: lingo/meetings/models.py:135
 msgid "Good"
 msgstr "İyi"
 
@@ -623,6 +675,16 @@ msgstr "Eposta"
 #: lingo/views.py:45
 msgid "Welcome to Lingo Cafe!"
 msgstr "Lingo Cafe'ye hoşgeldin!"
+
+#~ msgid "Please upload a document or provide a URL to a document."
+#~ msgstr "Lütfen bir doküman yükle veya doküman URL'i gir"
+
+#~ msgid "Either upload a document or provide a URL to a document; not both."
+#~ msgstr ""
+#~ "Ya bir doküman yükle ya da bir doküman URL'i gir; ikisini birden değil"
+
+#~ msgid "document"
+#~ msgstr "doküman"
 
 #~ msgid "There are no scheduled meetings for your profile languages."
 #~ msgstr "Profiline uygun oturum bulunmuyor."
