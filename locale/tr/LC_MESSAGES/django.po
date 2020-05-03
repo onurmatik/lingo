@@ -321,7 +321,7 @@ msgid ""
 "informal learning process."
 msgstr ""
 "Dil pratiği yapmak isteyenlerle gönüllü eğitmen ve kolaylaştırıcıları "
-"arkadaşça bir öğrenme sürecinde buluşturur getirir."
+"arkadaşça bir öğrenme sürecinde buluşturur."
 
 #: lingo/templates/docs/details.html:19
 msgid "We meet over online video conference calls."
