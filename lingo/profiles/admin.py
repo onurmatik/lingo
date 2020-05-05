@@ -14,5 +14,5 @@ class ProfileLanguageInline(admin.TabularInline):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'country', 'profile_language', 'timezone']
+    list_display = ['user', 'email_confirmed', 'country', 'profile_language', 'timezone']
     inlines = [ProfileLanguageInline]

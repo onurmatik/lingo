@@ -26,6 +26,7 @@ class Profile(models.Model):
         max_length=8,
         default=settings.LANGUAGE_CODE,
     )
+    email_confirmed = models.BooleanField(_('email confirmed'), default=False)
 
     def __str__(self):
         return self.user.username

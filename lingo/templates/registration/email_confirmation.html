@@ -1,0 +1,8 @@
+{% load i18n %}{% autoescape off %}{% url 'activate' uidb64=uid token=token as activation_url %}
+{% blocktrans with user.first_name as name %}Hi {{ name }},
+
+Please click on the link below to confirm your email address:
+
+https://lingo.cafe{{ activation_url }}
+{% endblocktrans %}
+{% endautoescape %}

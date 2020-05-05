@@ -149,6 +149,11 @@ LOCALE_PATHS = (
 LOGIN_URL = 'signup'
 
 
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django_ses.SESBackend'
+
+
+
 try:
     from .settings_local import *
 except ImportError:

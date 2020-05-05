@@ -4,7 +4,8 @@ from django.views.generic import TemplateView
 from django.utils.translation import ugettext as _
 from django.contrib.auth.views import LoginView
 from lingo.meetings.views import meeting_list, meeting_detail, meeting_rsvp, meeting_rsvp_cancel, meeting_request
-from lingo.views import IndexView, signup, set_language, AuthForm
+from lingo.profiles.views import signup, AuthForm, activate
+from lingo.views import IndexView, set_language
 
 
 urlpatterns = [
@@ -16,6 +17,7 @@ urlpatterns = [
     ), name='auth'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('signup/', signup, name='signup'),
+    path('activate/<str:uidb64>/<str:token>/', activate, name='activate'),
 
     path('lang/', set_language, name='set_lang'),
 

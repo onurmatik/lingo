@@ -3,6 +3,7 @@ gunicorn
 pillow
 django-crispy-forms
 boto3
+six
 django-storages
 django-ses
 python-slugify

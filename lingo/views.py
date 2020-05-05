@@ -5,53 +5,7 @@ from django.http import HttpResponseRedirect
 from django.urls import translate_url
 from django.utils.translation import LANGUAGE_SESSION_KEY, get_language_from_request
 from django.views.generic import TemplateView
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.forms import AuthenticationForm
-from django import forms
 from lingo.meetings.models import Meeting
-
-
-class AuthForm(AuthenticationForm):
-    class Meta:
-        labels = {
-            'username': _('Email address'),
-        }
-
-
-class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, label=_('Name'))
-    username = forms.EmailField(max_length=254, label=_('Email'))
-
-    class Meta:
-        model = User
-        fields = ('first_name', 'username', 'password1', 'password2',)
-
-
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            u = form.save(commit=False)
-            u.email = form.cleaned_data.get('username')
-            u.save()
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=u.username, password=raw_password)
-            login(request, user)
-            messages.success(request, _('Welcome to Lingo Cafe!'))
-            if request.POST.get('next'):
-                return redirect(request.POST.get('next'))
-            else:
-                return redirect('index')
-    else:
-        form = SignUpForm()
-    return render(request, 'registration/signup.html', {
-        'form': form
-    })
 
 
 class IndexView(TemplateView):
