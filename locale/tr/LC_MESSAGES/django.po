@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-03 11:23+0000\n"
+"POT-Creation-Date: 2020-05-05 11:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,14 +62,14 @@ msgstr ""
 "haznemi geliştirmek istiyorum."
 
 #: lingo/meetings/models.py:33 lingo/meetings/models.py:93
-#: lingo/meetings/models.py:119 lingo/profiles/models.py:21
-#: lingo/profiles/models.py:37
+#: lingo/meetings/models.py:119 lingo/profiles/models.py:22
+#: lingo/profiles/models.py:44
 msgid "language"
 msgstr "dil"
 
 #: lingo/meetings/models.py:34 lingo/meetings/models.py:126
-#: lingo/meetings/models.py:138 lingo/profiles/models.py:40
-#: lingo/profiles/models.py:62
+#: lingo/meetings/models.py:138 lingo/profiles/models.py:47
+#: lingo/profiles/models.py:69
 msgid "time"
 msgstr "zaman"
 
@@ -155,7 +155,7 @@ msgid "participant"
 msgstr "katılımcı"
 
 #: lingo/meetings/models.py:110 lingo/meetings/models.py:120
-#: lingo/meetings/models.py:122 lingo/profiles/models.py:39
+#: lingo/meetings/models.py:122 lingo/profiles/models.py:46
 msgid "co-host"
 msgstr "kolaylaştırıcı"
 
@@ -164,16 +164,16 @@ msgid "time joined"
 msgstr "katılma zamanı"
 
 #: lingo/meetings/models.py:118 lingo/meetings/models.py:131
-#: lingo/profiles/models.py:13 lingo/profiles/models.py:53
+#: lingo/profiles/models.py:14 lingo/profiles/models.py:60
 msgid "user"
 msgstr "kullanıcı"
 
-#: lingo/meetings/models.py:124 lingo/profiles/models.py:15
+#: lingo/meetings/models.py:124 lingo/profiles/models.py:16
 msgid "country"
 msgstr "ülke"
 
 #: lingo/meetings/models.py:125 lingo/meetings/models.py:137
-#: lingo/profiles/models.py:61
+#: lingo/profiles/models.py:68
 msgid "notes"
 msgstr "notlar"
 
@@ -235,23 +235,64 @@ msgstr "Eklemek istediklerin."
 msgid "Thank you! Your sugestion is recorded."
 msgstr "Teşekkürler! Önerini aldık."
 
-#: lingo/profiles/models.py:16
+#: lingo/profiles/models.py:17
 msgid "timezone"
 msgstr "saat dilimi"
 
-#: lingo/profiles/models.py:32
+#: lingo/profiles/models.py:25
+msgid "profile language"
+msgstr "profil dili"
+
+#: lingo/profiles/models.py:29
+msgid "email confirmed"
+msgstr "eposta onaylandı"
+
+#: lingo/profiles/models.py:39
 msgid "profile"
 msgstr "profil"
 
-#: lingo/profiles/models.py:59
+#: lingo/profiles/models.py:66
 msgid "reported by"
 msgstr "rapor eden"
 
-#: lingo/settings.py:121
+#: lingo/profiles/views.py:19
+msgid "Email address"
+msgstr "Eposta adresi"
+
+#: lingo/profiles/views.py:24
+msgid "Email"
+msgstr "Eposta"
+
+#: lingo/profiles/views.py:25
+msgid "Name"
+msgstr "İsim"
+
+#: lingo/profiles/views.py:34
+msgid "You are already logged in!"
+msgstr "Zaten giriş yapmış durumdasın!"
+
+#: lingo/profiles/views.py:45
+#, python-format
+msgid "Welcome to Lingo Cafe! A confirmation email is sent to %s."
+msgstr "Lingo Cafe'ye hoşgeldin! Onay epostası %s adresine gönderildi."
+
+#: lingo/profiles/views.py:47
+msgid "Welcome to Lingo Cafe!"
+msgstr "Lingo Cafe'ye hoşgeldin!"
+
+#: lingo/profiles/views.py:88
+msgid "Your email is confirmed successfully!"
+msgstr "Epostan başarıyla onaylandı!"
+
+#: lingo/profiles/views.py:91
+msgid "Email confirmation failed!"
+msgstr "Eposta onayı başarısız oldu!"
+
+#: lingo/settings.py:122
 msgid "English"
 msgstr ""
 
-#: lingo/settings.py:122
+#: lingo/settings.py:123
 msgid "Turkish"
 msgstr ""
 
@@ -623,6 +664,27 @@ msgstr "Kolaylaştırıcı olmak istiyorum"
 msgid "Count me in!"
 msgstr "Beni de ekle!"
 
+#: lingo/templates/registration/email_confirmation.html:2
+#, python-format
+msgid ""
+"Hi %(name)s,\n"
+"\n"
+"Please click on the link below to confirm your email address:\n"
+"\n"
+"https://lingo.cafe%(activation_url)s\n"
+"\n"
+"\n"
+"See at a lingo meeting soon!\n"
+msgstr ""
+"Merhaba %(name)s,\n"
+"\n"
+"Eposta adresini doğrulamak için lütfen aşağıdaki bağlantıya tıkla:\n"
+"\n"
+"https://lingo.cafe%(activation_url)s\n"
+"\n"
+"\n"
+"Yakında bir Lingo buluşmasında görüşmek üzere!\n"
+
 #: lingo/templates/registration/login.html:5
 #, python-format
 msgid ""
@@ -648,33 +710,17 @@ msgstr "Hesabın var mı?"
 msgid "Sign in"
 msgstr "Giriş yap"
 
-#: lingo/urls.py:36
+#: lingo/urls.py:38
 msgid "Lingo Cafe"
 msgstr "Lingo Cafe"
 
-#: lingo/urls.py:37
+#: lingo/urls.py:39
 msgid "Lingo Cafe Administration"
 msgstr "Lingo Cafe Yönetimi"
 
-#: lingo/urls.py:38
+#: lingo/urls.py:40
 msgid "Lingo Cafe Management"
 msgstr "Lingo Cafe Yönetimi"
-
-#: lingo/views.py:22
-msgid "Email address"
-msgstr "Eposta adresi"
-
-#: lingo/views.py:27
-msgid "Name"
-msgstr "İsim"
-
-#: lingo/views.py:28
-msgid "Email"
-msgstr "Eposta"
-
-#: lingo/views.py:45
-msgid "Welcome to Lingo Cafe!"
-msgstr "Lingo Cafe'ye hoşgeldin!"
 
 #~ msgid "Please upload a document or provide a URL to a document."
 #~ msgstr "Lütfen bir doküman yükle veya doküman URL'i gir"

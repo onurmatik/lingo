@@ -151,7 +151,7 @@ LOGIN_URL = 'signup'
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django_ses.SESBackend'
-DEFAULT_FROM_EMAIL = 'hello@lingo.cafe'
+DEFAULT_FROM_EMAIL = 'Lingo Cafe <hello@lingo.cafe>'
 
 
 try:
