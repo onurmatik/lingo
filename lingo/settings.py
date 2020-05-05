@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
 
     'awesome_django_timezones.middleware.TimezonesMiddleware',
+    'lingo.views.set_profile_language_middleware',
 ]
 
 ROOT_URLCONF = 'lingo.urls'

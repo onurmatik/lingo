@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from django_countries.fields import CountryField
+from django.conf import settings
 from timezone_field import TimeZoneField
 from lingo.languages.models import Language
 
@@ -19,6 +20,11 @@ class Profile(models.Model):
         through='ProfileLanguage',
         blank=True,
         verbose_name=_('language')
+    )
+    profile_language = models.CharField(
+        _('profile language'),
+        max_length=8,
+        default=settings.LANGUAGE_CODE,
     )
 
     def __str__(self):
