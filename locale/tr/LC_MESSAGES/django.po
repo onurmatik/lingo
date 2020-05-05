@@ -492,7 +492,7 @@ msgstr "Öner"
 
 #: lingo/templates/index.html:134
 msgid "Want to practice a language or co-host a session?"
-msgstr "Bir dili pratik etmek veya kolaylaştırıcı olmak ister misin?"
+msgstr "Bir dilde pratik yapmak veya kolaylaştırıcı olmak ister misin?"
 
 #: lingo/templates/index.html:137 lingo/templates/meetings/request_form.html:5
 #: lingo/templates/meetings/request_form.html:13
