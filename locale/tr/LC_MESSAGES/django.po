@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 12:09+0000\n"
+"POT-Creation-Date: 2020-05-05 12:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -296,11 +296,28 @@ msgstr ""
 msgid "Turkish"
 msgstr ""
 
-#: lingo/templates/base.html:16 lingo/templates/index.html:146
+#: lingo/templates/base.html:16
 msgid "Lingo Cafe is a free and open social platform for practising language."
 msgstr ""
 "Lingo Cafe dil pratiği yaparak sosyalleşmek için açık ve ücretsiz bir "
 "alandır."
+
+#: lingo/templates/base.html:71 lingo/templates/registration/login.html:41
+msgid "Login"
+msgstr "Giriş"
+
+#: lingo/templates/base.html:75 lingo/templates/registration/login.html:20
+#: lingo/templates/registration/signup.html:32
+msgid "Sign up"
+msgstr "Kayıt ol"
+
+#: lingo/templates/base.html:104
+msgid "Contact"
+msgstr "İletişim"
+
+#: lingo/templates/base.html:108
+msgid "Report a bug"
+msgstr "Sorun bildir"
 
 #: lingo/templates/docs/conduct.html:11
 msgid "Code of Conduct"
@@ -544,32 +561,23 @@ msgstr "Buluşma öner"
 msgid "About"
 msgstr "Hakkında"
 
-#: lingo/templates/index.html:154
+#: lingo/templates/index.html:148
+msgid ""
+"Lingo Cafe is a free and open platform for online language practice via "
+"video conference calls."
+msgstr ""
+"Lingo Cafe online video buluşmalarıyla dil pratiği yapmak için açık ve ücretsiz bir "
+"platformdur."
+
+#: lingo/templates/index.html:158
 msgid "Details"
 msgstr "Detaylar"
 
-#: lingo/templates/index.html:165
+#: lingo/templates/index.html:169
 msgid "Code of conduct"
 msgstr "Topluluk kuralları"
 
-#: lingo/templates/index.html:169
-msgid "Contact"
-msgstr "İletişim"
-
-#: lingo/templates/index.html:173
-msgid "Report a bug"
-msgstr "Sorun bildir"
-
-#: lingo/templates/index.html:184 lingo/templates/registration/login.html:41
-msgid "Login"
-msgstr "Giriş"
-
-#: lingo/templates/index.html:188 lingo/templates/registration/login.html:20
-#: lingo/templates/registration/signup.html:32
-msgid "Sign up"
-msgstr "Kayıt ol"
-
-#: lingo/templates/index.html:210
+#: lingo/templates/index.html:191
 msgid "Are you sure you want to cancel your participation?"
 msgstr "Katılımını iptal etmek istediğine emin misin?"
 

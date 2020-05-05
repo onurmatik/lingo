@@ -141,35 +141,37 @@
 
 		<h4 class="mt-4">{% trans "About" %}</h4>
 
-			<p class="mt-2">
+		<div class="row">
 
-				{% trans "Lingo Cafe is a free and open social platform for practising language." %}
+			<p class="mt-2 w-md-50 mx-auto">
 
-			</p>
-
-
-			<p class="mt-2">
-
-				<a href="{% url 'docs_details' %}">
-					{% trans "Details" %}
-				</a>
-				|
-				{% comment %}
-				<a href="{% url 'docs_privacy' %}">
-					{% trans "Privacy policy" %}
-				</a>
-				|
-				{% endcomment %}
-				<a href="{% url 'docs_conduct' %}">
-					{% trans "Code of conduct" %}
-				</a>
+				{% trans "Lingo Cafe is a free and open platform for online language practice via video conference calls." %}
 
 			</p>
 
+		</div>
 
+		<p class="mt-2">
+
+			<a href="{% url 'docs_details' %}">
+				{% trans "Details" %}
+			</a>
+			|
+			{% comment %}
+			<a href="{% url 'docs_privacy' %}">
+				{% trans "Privacy policy" %}
+			</a>
+			|
+			{% endcomment %}
+			<a href="{% url 'docs_conduct' %}">
+				{% trans "Code of conduct" %}
+			</a>
+
+		</p>
 
 		{% if user.is_anonymous %}
-			<p class="mt-2">
+			<br>
+			<p class="mt-4 text-center">
 
 				<a href="{% url 'login' %}">
 					{% trans "Login" %}
@@ -181,6 +183,7 @@
 
 			</p>
 		{% endif %}
+
 
 	</div>
 
