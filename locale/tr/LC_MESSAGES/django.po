@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 11:58+0000\n"
+"POT-Creation-Date: 2020-05-05 12:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -556,16 +556,20 @@ msgstr "Topluluk kuralları"
 msgid "Contact"
 msgstr "İletişim"
 
-#: lingo/templates/index.html:180 lingo/templates/registration/login.html:41
+#: lingo/templates/index.html:173
+msgid "Report a bug"
+msgstr "Sorun bildir"
+
+#: lingo/templates/index.html:184 lingo/templates/registration/login.html:41
 msgid "Login"
 msgstr "Giriş"
 
-#: lingo/templates/index.html:184 lingo/templates/registration/login.html:20
+#: lingo/templates/index.html:188 lingo/templates/registration/login.html:20
 #: lingo/templates/registration/signup.html:32
 msgid "Sign up"
 msgstr "Kayıt ol"
 
-#: lingo/templates/index.html:206
+#: lingo/templates/index.html:210
 msgid "Are you sure you want to cancel your participation?"
 msgstr "Katılımını iptal etmek istediğine emin misin?"
 
