@@ -147,6 +147,7 @@ LOCALE_PATHS = (
 
 
 LOGIN_URL = 'signup'
+LOGIN_REDIRECT_URL = 'index'
 
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
