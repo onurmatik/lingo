@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'crispy_forms',
+    'captcha',
     'awesome_django_timezones',
     'timezone_field',
     'django_countries',

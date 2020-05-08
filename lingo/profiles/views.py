@@ -11,9 +11,12 @@ from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.forms import AuthenticationForm
 from django import forms
+from captcha.fields import ReCaptchaField
 
 
 class AuthForm(AuthenticationForm):
+    captcha = ReCaptchaField()
+
     class Meta:
         labels = {
             'username': _('Email address'),
@@ -23,6 +26,7 @@ class AuthForm(AuthenticationForm):
 class SignUpForm(UserCreationForm):
     username = forms.EmailField(max_length=254, label=_('Email'))
     first_name = forms.CharField(max_length=30, label=_('Name'))
+    captcha = ReCaptchaField()
 
     class Meta:
         model = User
