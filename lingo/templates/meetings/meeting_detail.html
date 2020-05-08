@@ -27,6 +27,39 @@
             {% endif %}
         </h1>
 
+        {% if meeting.topic %}
+        <h4 class="my-4">
+            "{{ meeting.topic }}"
+        </h4>
+        {% endif %}
+
+        {% if meeting.resources.all %}
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <table align="center" class="text-left table">
+                    <tr>
+                        <td class="text-muted">
+                            {% trans "Resource" %}
+                        </td>
+                        <td class="text-muted">
+                            {% trans "Level" %}
+                        </td>
+                    </tr>
+                    {% for resource in meeting.resources.all %}
+                    <tr>
+                        <td>
+                            <a href="{{ resource.url }}" target="_blank">{{ resource.title }}</a>
+                        </td>
+                        <td>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="{{ resource.get_level_display }}">{{ resource.level }}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        {% endif %}
+
     </div>
 
     <br>
@@ -99,7 +132,7 @@
 
                     {% else %}
 
-                        <h3 class="text-center my-4">{% trans "Join this session!" %}</h3>
+                        <h5 class="text-center my-4">{% trans "Join this session!" %}</h5>
 
                         <form method="post" action="{% url 'meeting_rsvp' meeting_id=meeting.id %}">
 
@@ -182,5 +215,18 @@
 
 </div>
 
+
+{% endblock %}
+
+
+{% block js %}
+
+<script>
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+</script>
 
 {% endblock %}

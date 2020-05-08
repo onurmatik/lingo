@@ -1,13 +1,30 @@
 from django.contrib import admin
-from .models import Meeting, MeetingParticipant, MeetingRequest, MeetingPoll
+from .models import Meeting, MeetingParticipant, MeetingRequest, MeetingPoll, MeetingResource, Resource
+
+
+@admin.register(Resource)
+class ResourceAdmin(admin.ModelAdmin):
+    list_display = ['title', 'language', 'url', 'type', 'level']
+    search_fields = ['title', 'language', 'url']
+
+
+@admin.register(MeetingResource)
+class MeetingResourceAdmin(admin.ModelAdmin):
+    list_display = ['resource', 'meeting', 'time', 'added_by']
+
+
+class MeetingResourceInline(admin.StackedInline):
+    model = MeetingResource
+    autocomplete_fields = ['resource']
 
 
 @admin.register(Meeting)
 class MeetingAdmin(admin.ModelAdmin):
-    list_display = ['language', 'host', 'time', 'start_url', 'join_url']
+    list_display = ['language', 'type', 'host', 'time', 'start_url', 'join_url']
     list_filter = ['language', 'time']
     search_fields = ['host__username']
     autocomplete_fields = ['language', 'host', 'participants']
+    inlines = [MeetingResourceInline]
 
 
 @admin.register(MeetingParticipant)

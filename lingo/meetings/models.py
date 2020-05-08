@@ -32,6 +32,7 @@ LEVELS = (
 class Meeting(models.Model):
     language = models.ForeignKey(Language, verbose_name=_('language'), on_delete=models.CASCADE)
     time = models.DateTimeField(_('time'))
+    topic = models.CharField(max_length=200, blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
     resources = models.ManyToManyField('Resource', through='MeetingResource', verbose_name=_('meeting resource'))
     host = models.ForeignKey(
@@ -82,12 +83,12 @@ class Meeting(models.Model):
 
 
 class Resource(models.Model):
+    url = models.URLField(_('URL'))
     title = models.CharField(_('title'), max_length=50)
-    url = models.URLField(_('URL'), blank=True, null=True)
     type = models.CharField(_('resource type'), max_length=1, choices=(
-        ('r', 'reading'),
-        ('l', 'listening'),
-        ('w', 'watching'),
+        ('r', _('reading')),
+        ('l', _('listening')),
+        ('w', _('watching')),
     ))
     description = models.TextField(_('description'), blank=True, null=True)
     language = models.ForeignKey(Language, verbose_name=_('language'), on_delete=models.CASCADE)
@@ -101,7 +102,11 @@ class MeetingResource(models.Model):
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE, verbose_name=_('resource'))
     meeting = models.ForeignKey(Meeting, on_delete=models.CASCADE, verbose_name=_('meeting'))
     time = models.DateTimeField(auto_now_add=True)
-    added_by = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+    added_by = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, editable=False)
+
+    def clean(self):
+        if self.meeting.language != self.resource.language:
+            raise ValidationError(_('Resource language does not match the meeting language.'))
 
 
 class MeetingParticipant(models.Model):
