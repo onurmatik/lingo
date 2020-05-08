@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 12:55+0000\n"
+"POT-Creation-Date: 2020-05-08 11:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,135 +61,151 @@ msgstr ""
 "haznesiyle, yavaş ve kesik kesik konuşabiliyorum, akıcılık kazanmak, kelime "
 "haznemi geliştirmek istiyorum."
 
-#: lingo/meetings/models.py:33 lingo/meetings/models.py:93
-#: lingo/meetings/models.py:119 lingo/profiles/models.py:22
+#: lingo/meetings/models.py:33 lingo/meetings/models.py:94
+#: lingo/meetings/models.py:124 lingo/profiles/models.py:22
 #: lingo/profiles/models.py:44
 msgid "language"
 msgstr "dil"
 
-#: lingo/meetings/models.py:34 lingo/meetings/models.py:126
-#: lingo/meetings/models.py:138 lingo/profiles/models.py:47
+#: lingo/meetings/models.py:34 lingo/meetings/models.py:131
+#: lingo/meetings/models.py:143 lingo/profiles/models.py:47
 #: lingo/profiles/models.py:69
 msgid "time"
 msgstr "zaman"
 
-#: lingo/meetings/models.py:36
+#: lingo/meetings/models.py:37
 msgid "meeting resource"
 msgstr "referans materyal"
 
-#: lingo/meetings/models.py:42
+#: lingo/meetings/models.py:43
 msgid "meeting host"
 msgstr "oturum yöneticisi"
 
-#: lingo/meetings/models.py:44
+#: lingo/meetings/models.py:45
 msgid "Start URL"
 msgstr "Başlatma bağlantısı"
 
-#: lingo/meetings/models.py:45
+#: lingo/meetings/models.py:46
 msgid "Join URL"
 msgstr "Katılım bağlantısı"
 
-#: lingo/meetings/models.py:46
+#: lingo/meetings/models.py:47
 msgid "meeting password"
 msgstr "toplanti şifresi"
 
-#: lingo/meetings/models.py:52
+#: lingo/meetings/models.py:53
 msgid "participants"
 msgstr "katılımcılar"
 
-#: lingo/meetings/models.py:54
+#: lingo/meetings/models.py:55
 msgid "meeting type"
 msgstr "buluşma tipi"
 
-#: lingo/meetings/models.py:55
+#: lingo/meetings/models.py:56
 msgid "practice"
 msgstr "pratik"
 
-#: lingo/meetings/models.py:56
+#: lingo/meetings/models.py:57
 msgid "community meeting"
 msgstr "topluluk buluşması"
 
-#: lingo/meetings/models.py:60
+#: lingo/meetings/models.py:61
 msgid "no host"
 msgstr "kolaylaştırıcı yok"
 
-#: lingo/meetings/models.py:61
+#: lingo/meetings/models.py:62
 msgid "no participant"
 msgstr "katılımcı yok"
 
-#: lingo/meetings/models.py:62
+#: lingo/meetings/models.py:63
 msgid "other"
 msgstr "diğer"
-
-#: lingo/meetings/models.py:85
-msgid "title"
-msgstr "başlık"
 
 #: lingo/meetings/models.py:86
 msgid "URL"
 msgstr "URL"
 
 #: lingo/meetings/models.py:87
+msgid "title"
+msgstr "başlık"
+
+#: lingo/meetings/models.py:88
 msgid "resource type"
 msgstr "kaynak tipi"
 
-#: lingo/meetings/models.py:92
+#: lingo/meetings/models.py:89
+msgid "reading"
+msgstr "okuma"
+
+#: lingo/meetings/models.py:90
+msgid "listening"
+msgstr "dinleme"
+
+#: lingo/meetings/models.py:91
+msgid "watching"
+msgstr "izleme"
+
+#: lingo/meetings/models.py:93
 msgid "description"
 msgstr "tanım"
 
-#: lingo/meetings/models.py:94
+#: lingo/meetings/models.py:95
 msgid "level"
 msgstr "seviye"
 
-#: lingo/meetings/models.py:101
+#: lingo/meetings/models.py:102
 msgid "resource"
 msgstr "kaynak"
 
-#: lingo/meetings/models.py:102 lingo/meetings/models.py:108
-#: lingo/meetings/models.py:130
+#: lingo/meetings/models.py:103 lingo/meetings/models.py:113
+#: lingo/meetings/models.py:135
 msgid "meeting"
 msgstr "buluşma"
 
-#: lingo/meetings/models.py:109 lingo/meetings/models.py:121
+#: lingo/meetings/models.py:109
+msgid "Resource language does not match the meeting language."
+msgstr "Kaynak dili buluşma dili ile aynı değil."
+
+#: lingo/meetings/models.py:114 lingo/meetings/models.py:126
 msgid "participant"
 msgstr "katılımcı"
 
-#: lingo/meetings/models.py:110 lingo/meetings/models.py:120
-#: lingo/meetings/models.py:122 lingo/profiles/models.py:46
+#: lingo/meetings/models.py:115 lingo/meetings/models.py:125
+#: lingo/meetings/models.py:127 lingo/profiles/models.py:46
 msgid "co-host"
 msgstr "kolaylaştırıcı"
 
-#: lingo/meetings/models.py:111
+#: lingo/meetings/models.py:116
 msgid "time joined"
 msgstr "katılma zamanı"
 
-#: lingo/meetings/models.py:118 lingo/meetings/models.py:131
+#: lingo/meetings/models.py:123 lingo/meetings/models.py:136
 #: lingo/profiles/models.py:14 lingo/profiles/models.py:60
 msgid "user"
 msgstr "kullanıcı"
 
-#: lingo/meetings/models.py:124 lingo/profiles/models.py:16
+#: lingo/meetings/models.py:129 lingo/profiles/models.py:16
 msgid "country"
 msgstr "ülke"
 
-#: lingo/meetings/models.py:125 lingo/meetings/models.py:137
+#: lingo/meetings/models.py:130 lingo/meetings/models.py:142
 #: lingo/profiles/models.py:68
 msgid "notes"
 msgstr "notlar"
 
-#: lingo/meetings/models.py:132
+#: lingo/meetings/models.py:137
 msgid "rate"
 msgstr "puan"
 
-#: lingo/meetings/models.py:133
+#: lingo/meetings/models.py:138
 msgid "Poor"
 msgstr "Yetersiz"
 
-#: lingo/meetings/models.py:134
+#: lingo/meetings/models.py:139
 msgid "OK"
 msgstr "Orta"
 
-#: lingo/meetings/models.py:135
+#: lingo/meetings/models.py:140
 msgid "Good"
 msgstr "İyi"
 
@@ -302,28 +318,19 @@ msgstr ""
 "Lingo Cafe dil pratiği yaparak sosyalleşmek için açık ve ücretsiz bir "
 "alandır."
 
-#: lingo/templates/base.html:71 lingo/templates/registration/login.html:41
-msgid "Login"
-msgstr "Giriş"
-
-#: lingo/templates/base.html:75 lingo/templates/registration/login.html:20
-#: lingo/templates/registration/signup.html:32
-msgid "Sign up"
-msgstr "Kayıt ol"
-
-#: lingo/templates/base.html:104
+#: lingo/templates/base.html:88
 msgid "Contact"
 msgstr "İletişim"
 
-#: lingo/templates/base.html:108
+#: lingo/templates/base.html:92
 msgid "Report a bug"
 msgstr "Sorun bildir"
 
-#: lingo/templates/docs/conduct.html:11
+#: lingo/templates/docs/conduct.html:5 lingo/templates/docs/conduct.html:14
 msgid "Code of Conduct"
 msgstr "Kullanım Kuralları"
 
-#: lingo/templates/docs/conduct.html:15
+#: lingo/templates/docs/conduct.html:18 lingo/templates/docs/privacy.html:174
 msgid ""
 "The mission of the Lingo Cafe is to provide an open and welcoming social "
 "environment to connect anyone interested in practising a language and "
@@ -333,11 +340,11 @@ msgstr ""
 "olmakla isteyen herkesi bir araya getirmek için açık bir sosyal ortam "
 "sağlamaktır."
 
-#: lingo/templates/docs/conduct.html:20
+#: lingo/templates/docs/conduct.html:23 lingo/templates/docs/privacy.html:179
 msgid "Be friendly"
 msgstr "Arkadaşça davran"
 
-#: lingo/templates/docs/conduct.html:24
+#: lingo/templates/docs/conduct.html:27 lingo/templates/docs/privacy.html:183
 msgid ""
 "We strive to be a community that welcomes and supports people of all "
 "backgrounds and identities."
@@ -345,7 +352,7 @@ msgstr ""
 "Farklı kimliklere sahip insanlardan oluşan ve çeşitliliği destekleyen bir "
 "topluluğuz."
 
-#: lingo/templates/docs/conduct.html:25
+#: lingo/templates/docs/conduct.html:28 lingo/templates/docs/privacy.html:184
 msgid ""
 "This includes, but is not limited to members of any race, ethnicity, "
 "culture, national origin, immigration status, social and economic class, "
@@ -357,11 +364,11 @@ msgstr ""
 "yönelim, yaş, görünüm, zihinsel ve fiziksel beceri, siyasi duruş ve inancı "
 "kapsar."
 
-#: lingo/templates/docs/conduct.html:30
+#: lingo/templates/docs/conduct.html:33 lingo/templates/docs/privacy.html:189
 msgid "Be kind to others"
 msgstr "Diğerlerine karşı nazik ol"
 
-#: lingo/templates/docs/conduct.html:34
+#: lingo/templates/docs/conduct.html:37 lingo/templates/docs/privacy.html:193
 msgid ""
 "Members of the Lingo Cafe community should be kind and respectful when "
 "communicating with other members."
@@ -369,15 +376,15 @@ msgstr ""
 "Lingo Cafe üyeleri, diğer üyelerle iletişim kurarken kibar ve saygılı "
 "olmalıdır."
 
-#: lingo/templates/docs/conduct.html:35
+#: lingo/templates/docs/conduct.html:38 lingo/templates/docs/privacy.html:194
 msgid "Harassment and other exclusionary behavior aren't acceptable."
 msgstr "Taciz ve diğer dışlayıcı davranışlar kabul edilemez."
 
-#: lingo/templates/docs/conduct.html:36
+#: lingo/templates/docs/conduct.html:39 lingo/templates/docs/privacy.html:195
 msgid "This includes, but is not limited to:"
 msgstr "Kabul görmeyecek davranışlara örnekler:"
 
-#: lingo/templates/docs/conduct.html:38
+#: lingo/templates/docs/conduct.html:41 lingo/templates/docs/privacy.html:197
 msgid ""
 "Discriminatory jokes and language, sexually explicit or violent expressions, "
 "racist or sexist terms and unwelcome sexual attention."
@@ -385,19 +392,19 @@ msgstr ""
 "Ayrımcı şakalar ve dil, müstehcen veya şiddet içeren ifadeler, ırkçı veya "
 "cinsiyetçi terimler ve cinsel ilgi ifadeleri kullamak."
 
-#: lingo/templates/docs/conduct.html:39
+#: lingo/templates/docs/conduct.html:42 lingo/templates/docs/privacy.html:198
 msgid "Other people's personally identifying information."
 msgstr "Başkalarını kişisel olarak tanımlayıcı bilgiler paylaşmak."
 
-#: lingo/templates/docs/conduct.html:40
+#: lingo/templates/docs/conduct.html:43 lingo/templates/docs/privacy.html:199
 msgid "Advocating for, or encouraging, any of the above behavior."
 msgstr "Yukarıdaki davranışları savunmak veya teşvik etmek."
 
-#: lingo/templates/docs/conduct.html:45
+#: lingo/templates/docs/conduct.html:48 lingo/templates/docs/privacy.html:204
 msgid "This isn’t an exhaustive list of things that you can’t do."
 msgstr "Bu, kabul görmeyen davranışların tüm listesi değildir."
 
-#: lingo/templates/docs/conduct.html:46
+#: lingo/templates/docs/conduct.html:49 lingo/templates/docs/privacy.html:205
 msgid ""
 "Rather, take it as a guide to make it easier to enrich all of us and the "
 "community."
@@ -405,7 +412,7 @@ msgstr ""
 "Daha çok, topluluğumuzun keyifli halinin devamlılığını sağlamak için bir "
 "rehber olarak alınmalıdır."
 
-#: lingo/templates/docs/conduct.html:50
+#: lingo/templates/docs/conduct.html:53 lingo/templates/docs/privacy.html:209
 msgid ""
 "If you believe someone is violating the code of conduct, please report it by "
 "emailing <em>conduct [at] lingo.cafe</em>."
@@ -413,11 +420,15 @@ msgstr ""
 "Birinin davranış kurallarını ihlal ettiğini düşünüyorsanız, lütfen conduct "
 "[at] lingo.cafe adresine e-posta ile bildirin."
 
-#: lingo/templates/docs/details.html:10
+#: lingo/templates/docs/details.html:5 lingo/templates/index.html:142
+msgid "About"
+msgstr "Hakkında"
+
+#: lingo/templates/docs/details.html:13
 msgid "Welcome!"
 msgstr "Hoşgeldin!"
 
-#: lingo/templates/docs/details.html:14
+#: lingo/templates/docs/details.html:17
 msgid ""
 "Lingo Cafe is an open community of people practising language and "
 "socializing."
@@ -425,7 +436,7 @@ msgstr ""
 "Lingo Cafe dil pratiği yapmak için kurulmuş açık ve ücretsiz bir sosyal "
 "alandır."
 
-#: lingo/templates/docs/details.html:15
+#: lingo/templates/docs/details.html:18
 msgid ""
 "It connects practitioners to a variety of tutors who assist them through an "
 "informal learning process."
@@ -433,11 +444,11 @@ msgstr ""
 "Dil pratiği yapmak isteyenlerle gönüllü eğitmen ve kolaylaştırıcıları "
 "arkadaşça bir öğrenme sürecinde buluşturur."
 
-#: lingo/templates/docs/details.html:19
+#: lingo/templates/docs/details.html:22
 msgid "We meet over online video conference calls."
 msgstr "Çevrimiçi video konferans görüşmeleri üzerinden bir araya geliriz."
 
-#: lingo/templates/docs/details.html:20
+#: lingo/templates/docs/details.html:23
 msgid ""
 "Sessions last up to 2 hours. You can join and leave anytime during the "
 "sessions."
@@ -445,7 +456,7 @@ msgstr ""
 "Oturumlar 2 saate kadar sürer. Oturumlar boyunca istediğiniz zaman "
 "katılabilir ve ayrılabilirsiniz."
 
-#: lingo/templates/docs/details.html:21
+#: lingo/templates/docs/details.html:24
 msgid ""
 "Conversations usually take place in groups of 5 or less people depending on "
 "the total number of participants and facilitators."
@@ -453,19 +464,19 @@ msgstr ""
 "Sohbetler genellikle toplam katılımcı ve kolaylaştırıcı sayısına bağlı "
 "olarak 5 veya daha az kişilik gruplar halinde yapılır."
 
-#: lingo/templates/docs/details.html:22
+#: lingo/templates/docs/details.html:25
 msgid "The chat rooms are managed by the hosts."
 msgstr "Sohbet odaları kolaylaştırıcılar tarafından yönetilir."
 
-#: lingo/templates/docs/details.html:23
+#: lingo/templates/docs/details.html:26
 msgid "You will have a chance to participate in many groups during a session."
 msgstr "Katılımcıların bir oturum sırasında birçok gruba katılma şansı olur."
 
-#: lingo/templates/docs/details.html:27
+#: lingo/templates/docs/details.html:30
 msgid "Each meeting has one practice language."
 msgstr "Her toplantının pratik edilen bir tane dili vardır."
 
-#: lingo/templates/docs/details.html:28
+#: lingo/templates/docs/details.html:31
 msgid ""
 "Participants are expected to have at least a very basic level of "
 "understanding of the session's language."
@@ -473,7 +484,7 @@ msgstr ""
 "Katılımcıların oturumun dilini en azından çok temel düzeyde biliyor olmaları "
 "beklenir."
 
-#: lingo/templates/docs/details.html:32
+#: lingo/templates/docs/details.html:35
 msgid ""
 "During the sessions, hosts guide the participants by facilitating "
 "conversations and assisting them during their practices."
@@ -481,7 +492,7 @@ msgstr ""
 "Oturumlar sırasında kolaylaştırıcılar, konuşmaları yönlendirerek ve pratik "
 "çalışması sırasında onlara yardımcı olarak katılımcılara rehberlik eder."
 
-#: lingo/templates/docs/details.html:36
+#: lingo/templates/docs/details.html:39
 msgid ""
 "Anyone having fluency in the language of the session can volunteer to be a "
 "co-host."
@@ -489,13 +500,13 @@ msgstr ""
 "Oturumun dilini akıcı bir şekilde konuşabilen herkes gönüllü kolaylaştırıcı "
 "olabilir."
 
-#: lingo/templates/docs/details.html:37
+#: lingo/templates/docs/details.html:40
 msgid ""
 "Please indicate your intention to be a co-host when you are signing up for "
 "meeting."
 msgstr "Lütfen toplantıya kaydolurken kolaylaştırıcı olma isteğinizi belirtin."
 
-#: lingo/templates/docs/details.html:42
+#: lingo/templates/docs/details.html:45
 #, python-format
 msgid ""
 "Before participating in any activity, please make sure you fully agree with "
@@ -503,6 +514,10 @@ msgid ""
 msgstr ""
 "Herhangi bir etkinliğe katılmadan önce, lütfen <a href=\"%(url_conduct)s"
 "\">topluluk kurallarını</a> okuyun ve tamamen benimsediğinizden emin olun."
+
+#: lingo/templates/docs/privacy.html:4 lingo/templates/docs/privacy.html:13
+msgid "Privacy Policy"
+msgstr "Gizlilik politikası"
 
 #: lingo/templates/index.html:18
 msgid "Your meeting is live now!"
@@ -557,27 +572,32 @@ msgstr "Bir dilde pratik yapmak veya kolaylaştırıcı olmak ister misin?"
 msgid "Suggest a meeting"
 msgstr "Buluşma öner"
 
-#: lingo/templates/index.html:142
-msgid "About"
-msgstr "Hakkında"
-
 #: lingo/templates/index.html:148
 msgid ""
 "Lingo Cafe is a free and open platform for online language practice via "
 "video conference calls."
 msgstr ""
-"Lingo Cafe online video buluşmalarıyla dil pratiği yapmak için açık ve ücretsiz bir "
-"platformdur."
+"Lingo Cafe online video buluşmalarıyla dil pratiği yapmak için açık ve "
+"ücretsiz bir platformdur."
 
-#: lingo/templates/index.html:158
+#: lingo/templates/index.html:157
 msgid "Details"
 msgstr "Detaylar"
 
-#: lingo/templates/index.html:169
+#: lingo/templates/index.html:168
 msgid "Code of conduct"
 msgstr "Topluluk kuralları"
 
-#: lingo/templates/index.html:191
+#: lingo/templates/index.html:178 lingo/templates/registration/login.html:41
+msgid "Login"
+msgstr "Giriş"
+
+#: lingo/templates/index.html:182 lingo/templates/registration/login.html:20
+#: lingo/templates/registration/signup.html:32
+msgid "Sign up"
+msgstr "Kayıt ol"
+
+#: lingo/templates/index.html:205
 msgid "Are you sure you want to cancel your participation?"
 msgstr "Katılımını iptal etmek istediğine emin misin?"
 
@@ -592,52 +612,60 @@ msgid "%(meeting)s session"
 msgstr "%(meeting)s buluşması"
 
 #: lingo/templates/meetings/meeting_detail.html:42
+msgid "Resource"
+msgstr "Kaynak"
+
+#: lingo/templates/meetings/meeting_detail.html:45
+msgid "Level"
+msgstr "Seviye"
+
+#: lingo/templates/meetings/meeting_detail.html:75
 msgid ""
 "Community meetings are open sessions for discussing the current issues and "
 "the future of the Lingo community."
 msgstr ""
 "Topluluk buluşmaları, Lingo ile ilgili önerilerin konuşulduğu oturumlardır."
 
-#: lingo/templates/meetings/meeting_detail.html:60
+#: lingo/templates/meetings/meeting_detail.html:93
 msgid "You are hosting this session."
 msgstr "Bu oturumu sen yönetiyorsun."
 
-#: lingo/templates/meetings/meeting_detail.html:62
+#: lingo/templates/meetings/meeting_detail.html:95
 msgid "Start the meeting"
 msgstr "Oturumu başlat"
 
-#: lingo/templates/meetings/meeting_detail.html:70
+#: lingo/templates/meetings/meeting_detail.html:103
 msgid "You are co-hosting this session."
 msgstr "Bu oturumun kolaylaştırıcısısın."
 
-#: lingo/templates/meetings/meeting_detail.html:72
+#: lingo/templates/meetings/meeting_detail.html:105
 msgid "You are attending this session."
 msgstr "Bu oturuma katılıyorsun."
 
-#: lingo/templates/meetings/meeting_detail.html:79
+#: lingo/templates/meetings/meeting_detail.html:112
 msgid "Go to the meeting"
 msgstr "Buluşmaya git"
 
-#: lingo/templates/meetings/meeting_detail.html:83
-#: lingo/templates/meetings/meeting_detail.html:163
+#: lingo/templates/meetings/meeting_detail.html:116
+#: lingo/templates/meetings/meeting_detail.html:196
 #, python-format
 msgid "%(timeuntil)s left"
 msgstr "%(timeuntil)s kaldı"
 
-#: lingo/templates/meetings/meeting_detail.html:89
+#: lingo/templates/meetings/meeting_detail.html:122
 msgid "Cancel your participation"
 msgstr "Katılımını iptal et"
 
-#: lingo/templates/meetings/meeting_detail.html:97
-#: lingo/templates/meetings/meeting_detail.html:102
+#: lingo/templates/meetings/meeting_detail.html:130
+#: lingo/templates/meetings/meeting_detail.html:135
 msgid "Join this session!"
 msgstr "Sen de katıl!"
 
-#: lingo/templates/meetings/meeting_detail.html:125
+#: lingo/templates/meetings/meeting_detail.html:158
 msgid "Reserve your place"
 msgstr "Yerini ayırt"
 
-#: lingo/templates/meetings/meeting_detail.html:129
+#: lingo/templates/meetings/meeting_detail.html:162
 #, python-format
 msgid ""
 "By joining a session, you accept the community <a href=\"%(url_conduct)s"
@@ -646,21 +674,21 @@ msgstr ""
 "Oturuma katılarak, topluluk <a href=\"%(url_conduct)s\">kullanım "
 "kurallarını</a> kabul etmiş oluyorsun."
 
-#: lingo/templates/meetings/meeting_detail.html:151
+#: lingo/templates/meetings/meeting_detail.html:184
 msgid "This meeting is finished!"
 msgstr "Bu buluşma bitti!"
 
-#: lingo/templates/meetings/meeting_detail.html:161
+#: lingo/templates/meetings/meeting_detail.html:194
 #, python-format
 msgid "Next %(meeting)s session"
 msgstr "Gelecek %(meeting)s buluşması"
 
-#: lingo/templates/meetings/meeting_detail.html:176
+#: lingo/templates/meetings/meeting_detail.html:209
 #, python-format
 msgid "Join the %(meeting)s session @ %(time)s"
 msgstr "%(meeting)s buluşmasına katıl @ %(time)s"
 
-#: lingo/templates/meetings/meeting_detail.html:177
+#: lingo/templates/meetings/meeting_detail.html:210
 msgid "Share on Twitter"
 msgstr "Twitter'da paylaş"
 
@@ -749,9 +777,6 @@ msgstr "Lingo Cafe Yönetimi"
 
 #~ msgid "Be friendly, welcoming and respectful"
 #~ msgstr "Arkadaşça ve saygılı davran"
-
-#~ msgid "Privacy policy"
-#~ msgstr "Gizlilik politikası"
 
 #~ msgid "How it works"
 #~ msgstr "Nasıl işliyor?"
