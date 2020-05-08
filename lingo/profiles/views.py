@@ -15,12 +15,8 @@ from captcha.fields import ReCaptchaField
 
 
 class AuthForm(AuthenticationForm):
+    username = forms.EmailField(max_length=254, label=_('Email'))
     captcha = ReCaptchaField()
-
-    class Meta:
-        labels = {
-            'username': _('Email address'),
-        }
 
 
 class SignUpForm(UserCreationForm):
