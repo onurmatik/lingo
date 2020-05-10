@@ -106,8 +106,9 @@
                     {% endif %}
 
                     <div class="text-center mt-4">
-                        <a href="{{ meeting.join_url }}" target="_blank" style="background-color: #666; border-color: #666;"
-                           class="btn btn-primary btn-lg {% if meeting_status != 'NOW' %}disabled{% endif %}"
+                        <a href="{{ meeting.join_url }}" target="_blank"
+                           class="btn btn-primary btn-lg {% if not join_link_enabled %}disabled{% endif %}"
+                           {% if not join_link_enabled %} style="background-color: #666; border-color: #666;"{% endif %}
                         >
                             {% trans "Go to the meeting" %}
                         </a>
