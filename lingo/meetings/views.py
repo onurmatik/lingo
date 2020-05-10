@@ -78,7 +78,7 @@ def meeting_detail(request, meeting_id):
 @login_required
 def meeting_rsvp(request, meeting_id):
     meeting = get_object_or_404(Meeting, id=meeting_id)
-    if request.user in meeting.participants.all():
+    if request.user in meeting.participants.all() or request.user == meeting.host:
         return redirect('meeting_detail', meeting_id=meeting.id)
     if request.method == 'POST':
         form = RsvpForm(request.POST)
