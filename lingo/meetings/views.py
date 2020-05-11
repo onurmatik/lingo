@@ -13,9 +13,10 @@ from .models import Meeting, MeetingParticipant, MeetingRequest
 
 def meeting_list(request):
     now = timezone.now()
+    qs = Meeting.objects.exclude(cancelled=True)
     return render(request, 'index.html', {
-        'now': Meeting.objects.filter(time__lte=now, time__gt=now+timedelta(minutes=60)),
-        'soon': Meeting.objects.filter(time__gte=now)[:5],
+        'now': qs.filter(time__lte=now, time__gt=now+timedelta(minutes=60)),
+        'soon': qs.filter(time__gte=now)[:5],
     })
 
 
