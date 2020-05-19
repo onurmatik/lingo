@@ -1,3 +1,4 @@
+import secrets
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
@@ -73,8 +74,12 @@ class Meeting(models.Model):
 
     def save(self, **kwargs):
         if not self.start_url:
-            # TODO: Zoom API things
-            pass
+            # create a random Jitsi meeting link
+            uri = _('Lingo_%(lang)s_%(code)s') % {
+                'lang': self.language.code.upper(),
+                'code': secrets.token_urlsafe(8).lower(),
+            }
+            self.join_url = self.start_url = 'https://meet.jit.si/%s' % uri
         super().save(**kwargs)
 
     def clean(self):
