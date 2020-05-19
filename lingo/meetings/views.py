@@ -51,12 +51,6 @@ def meeting_detail(request, meeting_id):
         context.update({
             'meeting_status': 'WAIT',
         })
-    if not request.user.is_anonymous:
-        if meeting.time - timedelta(minutes=15) < now < meeting.time + timedelta(hours=1):
-            if request.user in meeting.participants.all() and meeting.join_url:
-                context.update({
-                    'join_link_enabled': True,
-                })
     else:
         meeting_next = Meeting.objects.filter(
             language=meeting.language,
@@ -68,6 +62,11 @@ def meeting_detail(request, meeting_id):
         })
 
     if not request.user.is_anonymous:
+        if meeting.time - timedelta(minutes=15) < now < meeting.time + timedelta(hours=1):
+            if request.user in meeting.participants.all() and meeting.join_url:
+                context.update({
+                    'join_link_enabled': True,
+                })
         participation = MeetingParticipant.objects.filter(
             meeting=meeting,
             participant=request.user,
